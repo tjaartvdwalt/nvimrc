@@ -1,54 +1,31 @@
 let g:projectionist_heuristics = {
       \   ".git/": {
-      \     "bitbucket-pipelines.yml": {
-      \       "type": "pipeline"
-      \     }
+      \     "bitbucket-pipelines.yml": {"type": "pipeline"}
       \   },
-      \   "package.json": {
-      \     "package.json": {
-      \       "type": "package"
-      \     },
-      \     "src/*.js": {
-      \       "type": "js"
-      \     },
-      \     "src/*.ts": {
-      \       "type": "ts"
-      \     },
-      \     "tests/*.js": {
-      \       "type": "tests"
-      \     }
+      \   "package.json": {"package.json": {"type": "package"},
+      \     "src/*.js": {"type": "js"},
+      \     "src/*.ts": {"type": "ts"},
+      \     "tests/*.js": {"type": "tests"}
       \   },
       \   "vue.config.js": {
-      \     "src/*.vue": {
-      \       "type": "vue"
-      \     },
-      \     "tests/*.spec.ts": {
-      \       "type": "tests"
-      \     },
+      \     "src/*.vue": {"type": "vue"},
+      \     "tests/*.spec.ts": {"type": "tests"},
       \     "src/components/*.vue": {
       \       "type": "component",
       \       "alternate": "tests/unit/{basename}.ts"
       \      },
-      \     "src/views/*.vue": {
-      \       "type": "view"
-      \     },
+      \     "src/views/*.vue": {"type": "view"},
       \     "src/store/modules/*.ts": {
       \       "type": "store",
       \       "alternate":"tests/unit/store/modules/{basename}.spec.ts"
       \     },
-      \     "src/types/*.ts": {
-      \       "type": "type"
-      \     },
-      \     "src/router/*.ts": {
-      \       "type": "route"
-      \     },
+      \     "src/types/*.ts": {"type": "type"},
+      \     "src/router/*.ts": {"type": "route"},
       \     "tests/unit/*.spec.ts": {
       \       "type": "unit",
       \       "alternate":"src/{dirname}/{basename}.ts"
       \     },
-      \     "tests/e2e/specs/*.js": {
-      \       "type": "integration"
-      \     }
+      \     "tests/e2e/specs/*.js": {"type": "integration"}
       \   },
       \   "sfdx-project.json": {
       \     "force-app/main/default/lwc/*.html": {
