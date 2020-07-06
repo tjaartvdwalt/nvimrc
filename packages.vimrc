@@ -63,7 +63,8 @@ call minpac#add('dense-analysis/ale')
 " let g:ale_completion_tsserver_autoimport = 1
 
 call minpac#add('junegunn/fzf.vim')
-" let g:fzf_preview_window = ''
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :Files<CR>
 
 call minpac#add('airblade/vim-gitgutter')
 
@@ -140,11 +141,6 @@ call minpac#add('tmhedberg/simpylfold')
 " XML folding
 call minpac#add('vim-scripts/XML-Folding')
 au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/pack/minpac/start/XML-Folding/plugin/XMLFolding.vim
-
-call minpac#add('jlanzarotta/bufexplorer')
-nnoremap <Leader>b :BufExplorer<CR>
-let g:bufExplorerDisableDefaultKeyMapping=1
-let g:bufExplorerShowTabBuffer=1
 
 call minpac#add('cespare/vim-toml')
 
