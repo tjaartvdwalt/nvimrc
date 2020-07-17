@@ -7,10 +7,10 @@ set nofoldenable
 set nu
 
 set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 " set omnifunc=ale#completion#OmniFunc
 " set completeopt=menu,menuone,popup,noselect,noinsert
 
-set shell=$SHELL
 set showcmd
 set smartcase
 set spellfile=~/.vim/spell/en.utf-8.add
