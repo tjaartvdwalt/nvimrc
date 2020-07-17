@@ -89,8 +89,6 @@ call minpac#add('vim-ruby/vim-ruby')
 let ruby_fold = 1
 let ruby_spellcheck_strings = 1
 
-call minpac#add('mikepjb/vim-chruby')
-"autocmd BufEnter * Chruby auto
 
 call minpac#add('alvan/vim-closetag')
 call minpac#add('machakann/vim-highlightedyank')
