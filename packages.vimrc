@@ -48,7 +48,7 @@ let g:airline_powerline_fonts = 1
 " Poor man's airline plugin, add conflicted text to section c
 let g:airline_section_c = '%F    %{ConflictedVersion()}'
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
@@ -58,13 +58,13 @@ call minpac#add('sodapopcan/vim-twiggy')
 let g:twiggy_local_branch_sort = 'date'
 let g:twiggy_remote_branch_sort = 'date'
 
-let g:ale_completion_enabled = 0
-call minpac#add('dense-analysis/ale')
+" let g:ale_completion_enabled = 0
+" call minpac#add('dense-analysis/ale')
 " let g:ale_completion_tsserver_autoimport = 1
 
 call minpac#add('junegunn/fzf.vim')
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>fb :Buffers<CR>
+nnoremap <Leader>ff :Files<CR>
 
 call minpac#add('airblade/vim-gitgutter')
 
@@ -88,7 +88,6 @@ call minpac#add('mattn/emmet-vim')
 call minpac#add('vim-ruby/vim-ruby')
 let ruby_fold = 1
 let ruby_spellcheck_strings = 1
-
 
 call minpac#add('alvan/vim-closetag')
 call minpac#add('machakann/vim-highlightedyank')
@@ -117,8 +116,8 @@ call minpac#add('plasticboy/vim-markdown')
 call minpac#add('iamcco/markdown-preview.nvim', {'do': 'call mkdp#util#install()'})
 
 call minpac#add('gcmt/taboo.vim')
-let g:taboo_renamed_tab_format = " [%l]%I%m"
-let g:taboo_tabline = 0
+" let g:taboo_renamed_tab_format = " [%l]%I%m"
+" let g:taboo_tabline = 0
 set sessionoptions+=tabpages,globals
 
 call minpac#add('leafOfTree/vim-vue-plugin')
@@ -146,6 +145,11 @@ call minpac#add('vim-scripts/loremipsum')
 
 call minpac#add('pechorin/any-jump.vim')
 let g:any_jump_search_prefered_engine = 'ag'
+
+call minpac#add('jlanzarotta/bufexplorer')
+nnoremap <Leader>b :BufExplorer<CR>
+let g:bufExplorerDisableDefaultKeyMapping=1
+let g:bufExplorerShowTabBuffer=1
 
 call minpac#add('neovim/nvim-lsp')
 lua << EOF
