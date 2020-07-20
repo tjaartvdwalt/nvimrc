@@ -7,8 +7,13 @@ packadd! matchit
 call minpac#init()
 
 " Set shortcut commands
-command! PackUpdate call minpac#clean() | call minpac#update()
+command! PackClean call minpac#clean()
+command! PackUpdate call minpac#update()
 command! PackStatus call minpac#status()
+command! PackSync call minpac#clean() | call minpac#update()
+
+" Several language packs
+call minpac#add('sheerun/vim-polyglot')
 
 " All the Tim Pope plugins
 call minpac#add('tpope/vim-bundler')
@@ -29,12 +34,6 @@ call minpac#add('tpope/vim-speeddating')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-vinegar')
-
-
-call minpac#add('mileszs/ack.vim')
-let g:ackprg = 'ag --vimgrep'
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :ProjectDo Ack!<space>
 
 call minpac#add('whiteinge/diffconflicts')
 
@@ -95,8 +94,15 @@ call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('maxbrunsfeld/vim-yankstack')
 
 call minpac#add('sbdchd/neoformat')
-cnoreabbrev f Neoformat
-" let g:neoformat_verbose = 1
+let g:neoformat_verbose = 1
+
+" call minpac#add('prettier/vim-prettier')
+" call minpac#add('ngmy/vim-rubocop')
+
+
+call minpac#add('google/vim-maktaba')
+call minpac#add('google/vim-codefmt')
+call minpac#add('google/vim-glaive')
 
 call minpac#add('neowit/vim-force.com')
 " Download the jar from https://github.com/neowit/tooling-force.com/releases
@@ -175,3 +181,10 @@ nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+
+call minpac#add('moll/vim-node')
+
+call minpac#add('vim-test/vim-test')
+
+call minpac#add('mhinz/vim-grepper')
+nnoremap <Leader>a :ProjectDo GrepperAg<space>

@@ -25,7 +25,11 @@ set wildmode=list:longest
 autocmd BufEnter * silent! lcd %:p:h
 autocmd TabEnter * silent! tcd %:p:h
 
-cnoreabbrev g Git
+"prevent nested instances
+if has('nvim') && executable('nvr')
+  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+endif
+
 augroup turbo_commit
   autocmd!
   autocmd BufEnter COMMIT_EDITMSG startinsert
