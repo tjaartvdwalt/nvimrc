@@ -2,14 +2,19 @@ let g:projectionist_heuristics = {
       \   ".git/": {
       \     "bitbucket-pipelines.yml": {"type": "pipeline"}
       \   },
-      \   "package.json": {"package.json": {"type": "package"},
-      \     "src/*.js": {"type": "js"},
-      \     "src/*.ts": {"type": "ts"},
-      \     "tests/*.js": {"type": "tests"}
+      \   "package.json": {
+      \     "package.json": {"type": "package"}
+      \   },
+      \   "nuxt.config.js": {
+      \     "components/*.vue": {"type": "component"},
+      \     "layouts/*.vue": {"type": "layout"},
+      \     "pages/*.vue": {"type": "page"},
+      \     "store/*.ts": {"type": "store"},
+      \     "test/*.spec.js": {"type": "test"}
       \   },
       \   "vue.config.js": {
       \     "src/*.vue": {"type": "vue"},
-      \     "tests/*.spec.ts": {"type": "tests"},
+      \     "tests/*.spec.ts": {"type": "test"},
       \     "src/components/*.vue": {
       \       "type": "component",
       \       "alternate": "tests/unit/{basename}.ts"

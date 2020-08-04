@@ -16,9 +16,17 @@ set smartcase
 set spellfile=~/.vim/spell/en.utf-8.add
 set tabstop=4
 set tags=tags;/
-set undofile
 set wildmode=list:longest
+set mouse=a
+set clipboard=unnamed
 
+"Manage undo files
+set undofile
+"Do not create undo files for /tmp files
+augroup vimrc
+  autocmd!
+  autocmd BufWritePre /tmp/* setlocal noundofile
+augroup END
 
 " set autochdir
 autocmd BufEnter * silent! lcd %:p:h
@@ -42,4 +50,3 @@ syntax enable
 filetype plugin on
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_sort_options = "i"
-

@@ -34,6 +34,7 @@ call minpac#add('tpope/vim-speeddating')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-vinegar')
+autocmd FileType netrw setl bufhidden=wipe
 
 call minpac#add('whiteinge/diffconflicts')
 
@@ -46,10 +47,10 @@ call minpac#add('vim-airline/vim-airline-themes')
 let g:airline_powerline_fonts = 1
 " Poor man's airline plugin, add conflicted text to section c
 let g:airline_section_c = '%F    %{ConflictedVersion()}'
-let g:airline#extensions#syntastic#enabled = 1
-" let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 call minpac#add('junegunn/gv.vim')
 
@@ -57,13 +58,16 @@ call minpac#add('sodapopcan/vim-twiggy')
 let g:twiggy_local_branch_sort = 'date'
 let g:twiggy_remote_branch_sort = 'date'
 
-" let g:ale_completion_enabled = 0
-" call minpac#add('dense-analysis/ale')
-" let g:ale_completion_tsserver_autoimport = 1
+call minpac#add('dense-analysis/ale')
+let g:ale_completion_enabled = 0
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
 
 call minpac#add('junegunn/fzf.vim')
-nnoremap <Leader>fb :Buffers<CR>
-nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :Files<CR>
 
 call minpac#add('airblade/vim-gitgutter')
 
@@ -94,7 +98,7 @@ call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('maxbrunsfeld/vim-yankstack')
 
 call minpac#add('sbdchd/neoformat')
-let g:neoformat_verbose = 1
+" let g:neoformat_verbose = 1
 
 " call minpac#add('prettier/vim-prettier')
 " call minpac#add('ngmy/vim-rubocop')
@@ -152,35 +156,12 @@ call minpac#add('vim-scripts/loremipsum')
 call minpac#add('pechorin/any-jump.vim')
 let g:any_jump_search_prefered_engine = 'ag'
 
-call minpac#add('jlanzarotta/bufexplorer')
-nnoremap <Leader>b :BufExplorer<CR>
-let g:bufExplorerDisableDefaultKeyMapping=1
-let g:bufExplorerShowTabBuffer=1
+" call minpac#add('jlanzarotta/bufexplorer')
+" nnoremap <Leader>b :BufExplorer<CR>
+" let g:bufExplorerDisableDefaultKeyMapping=1
+" let g:bufExplorerShowTabBuffer=1
 
-call minpac#add('neovim/nvim-lsp')
-lua << EOF
-vim.cmd('packadd nvim-lsp')
-
-require'nvim_lsp'.cssls.setup{}
-require'nvim_lsp'.html.setup{}
-require'nvim_lsp'.jsonls.setup{}
-require'nvim_lsp'.pyls.setup{}
-require'nvim_lsp'.solargraph.setup{}
-require'nvim_lsp'.tsserver.setup{}
-require'nvim_lsp'.vimls.setup{}
-require'nvim_lsp'.vuels.setup{}
-require'nvim_lsp'.yamlls.setup{}
-EOF
-
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+call minpac#add('nvim-lua/diagnostic-nvim')
 
 call minpac#add('moll/vim-node')
 
@@ -188,3 +169,13 @@ call minpac#add('vim-test/vim-test')
 
 call minpac#add('mhinz/vim-grepper')
 nnoremap <Leader>a :ProjectDo GrepperAg<space>
+
+call minpac#add('MikeDacre/tmux-zsh-vim-titles')
+let g:tzvt_vim_include_path = 'zsh'
+let g:tzvt_vim_path_before = 0
+let g:has_zsh = 1
+call minpac#add('editorconfig/editorconfig-vim')
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+call minpac#add('vim-scripts/BufOnly.vim')
+

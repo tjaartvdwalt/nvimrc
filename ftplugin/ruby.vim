@@ -1,5 +1,5 @@
-let b:neoformat_enabled_ruby = ['rubocop']
 let b:ale_linters = ['rubocop']
+let b:neoformat_enabled_ruby = ['rubocop']
 
 set omnifunc=v:lua.vim.lsp.omnifunc
 

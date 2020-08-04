@@ -19,9 +19,11 @@ function! SetupCommandAlias(input, output)
         \ .'? ("'.a:output.'") : ("'.a:input.'"))'
 endfunction
 
-call SetupCommandAlias("b", "buffer")
 call SetupCommandAlias("f", "Neoformat")
 call SetupCommandAlias("g", "Git")
+call SetupCommandAlias("git", "Git")
 call SetupCommandAlias("o", "only")
+call SetupCommandAlias("bo", "BufOnly")
+call SetupCommandAlias("cdc", "cd %:p:h")
 call SetupCommandAlias("Grep", "GrepperGrep")
 call SetupCommandAlias("Ag", "GrepperAg")
