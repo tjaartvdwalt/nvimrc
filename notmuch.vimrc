@@ -1,5 +1,5 @@
 " call minpac#add('guyzmo/notmuch-abook')
-call minpac#add('git://git.notmuchmail.org/git/notmuch', {'do': 'make -C vim install'})
+call minpac#add('tjaartvdwalt/nvim-notmuch')
 
 let g:notmuch_folders = [
                 \ [ 'new', 'tag:inbox and tag:unread' ],

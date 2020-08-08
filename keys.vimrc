@@ -21,6 +21,7 @@ endfunction
 
 call SetupCommandAlias("f", "Neoformat")
 call SetupCommandAlias("g", "Git")
+call SetupCommandAlias("gs", "Gllog -g stash")
 call SetupCommandAlias("git", "Git")
 call SetupCommandAlias("o", "only")
 call SetupCommandAlias("bo", "BufOnly")

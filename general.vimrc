@@ -19,6 +19,7 @@ set tags=tags;/
 set wildmode=list:longest
 set mouse=a
 set clipboard=unnamed
+set updatetime=750
 
 "Manage undo files
 set undofile

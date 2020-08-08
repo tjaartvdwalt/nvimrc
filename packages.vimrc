@@ -47,7 +47,7 @@ call minpac#add('vim-airline/vim-airline-themes')
 let g:airline_powerline_fonts = 1
 " Poor man's airline plugin, add conflicted text to section c
 let g:airline_section_c = '%F    %{ConflictedVersion()}'
-let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -58,12 +58,12 @@ call minpac#add('sodapopcan/vim-twiggy')
 let g:twiggy_local_branch_sort = 'date'
 let g:twiggy_remote_branch_sort = 'date'
 
-call minpac#add('dense-analysis/ale')
-let g:ale_completion_enabled = 0
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> ]W <Plug>(ale_last)
+" call minpac#add('dense-analysis/ale')
+" let g:ale_completion_enabled = 0
+" nmap <silent> [W <Plug>(ale_first)
+" nmap <silent> [w <Plug>(ale_previous)
+" nmap <silent> ]w <Plug>(ale_next)
+" nmap <silent> ]W <Plug>(ale_last)
 
 call minpac#add('junegunn/fzf.vim')
 nnoremap <Leader>b :Buffers<CR>
@@ -83,8 +83,8 @@ call minpac#add('mbbill/undotree')
 nmap <silent> <Leader>u :UndotreeToggle<CR>:UndotreeFocus<CR>
 
 call minpac#add('leafgarland/typescript-vim')
-call minpac#add('Quramy/tsuquyomi')
-call minpac#add('Quramy/tsuquyomi-vue')
+" call minpac#add('Quramy/tsuquyomi')
+" call minpac#add('Quramy/tsuquyomi-vue')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('mattn/emmet-vim')
 
@@ -178,4 +178,10 @@ call minpac#add('editorconfig/editorconfig-vim')
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 call minpac#add('vim-scripts/BufOnly.vim')
+
+call minpac#add('puremourning/vimspector')
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-bash-debug', 'vscode-node-debug2' ]
+
+call minpac#add('RRethy/vim-hexokinase', { 'do': 'make hexokinase' })
 
