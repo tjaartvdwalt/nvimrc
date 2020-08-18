@@ -18,7 +18,12 @@ call minpac#add('sheerun/vim-polyglot')
 " All the Tim Pope plugins
 call minpac#add('tpope/vim-bundler')
 call minpac#add('tpope/vim-commentary')
+
 call minpac#add('tpope/vim-dadbod')
+call minpac#add('kristijanhusak/vim-dadbod-ui')
+call minpac#add('kristijanhusak/vim-dadbod-completion')
+
+
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('tpope/vim-eunuch')
@@ -67,7 +72,6 @@ let g:twiggy_remote_branch_sort = 'date'
 
 call minpac#add('junegunn/fzf.vim')
 nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>f :Files<CR>
 
 call minpac#add('airblade/vim-gitgutter')
 
@@ -93,6 +97,8 @@ let ruby_fold = 1
 let ruby_spellcheck_strings = 1
 
 call minpac#add('alvan/vim-closetag')
+let g:closetag_filetypes = 'html,xhtml,phtml,vue'
+
 call minpac#add('machakann/vim-highlightedyank')
 
 call minpac#add('maxbrunsfeld/vim-yankstack')
@@ -184,4 +190,6 @@ let g:vimspector_enable_mappings = 'HUMAN'
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-bash-debug', 'vscode-node-debug2' ]
 
 call minpac#add('RRethy/vim-hexokinase', { 'do': 'make hexokinase' })
+
+call minpac#add('godlygeek/tabular')
 

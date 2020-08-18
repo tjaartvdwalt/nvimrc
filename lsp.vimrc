@@ -14,8 +14,6 @@ call sign_define("LspDiagnosticsWarningSign", {"text" : "--", "texthl" : "LspDia
 call sign_define("LspDiagnosticsInformationSign", {"text" : "!!", "texthl" : "LspDiagnosticsInformation"})
 call sign_define("LspDiagnosticsHintSign", {"text" : "??", "texthl" : "LspDiagnosticsHint"})
 
-" lua require'nvim_lsp'.pyls.setup{on_attach=require'diagnostic'.on_attach}
-
 lua << EOF
 vim.cmd('packadd diagnostic-nvim')
 vim.cmd('packadd nvim-lsp')
@@ -36,7 +34,8 @@ lsp.solargraph.setup{
   on_attach = on_attach,
   settings = {
     solargraph = {
-      diagnostics = true
+      diagnostics = true,
+      formatting = true
     }
   }
 }
@@ -46,6 +45,7 @@ lsp.vuels.setup{on_attach = on_attach}
 lsp.yamlls.setup{on_attach = on_attach}
 EOF
 
+nnoremap <silent> gf    <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -55,4 +55,5 @@ nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gn    <cmd>lua vim.lsp.buf.rename()<CR>
 
