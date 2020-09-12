@@ -23,7 +23,6 @@ call minpac#add('tpope/vim-dadbod')
 call minpac#add('kristijanhusak/vim-dadbod-ui')
 call minpac#add('kristijanhusak/vim-dadbod-completion')
 
-
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('tpope/vim-eunuch')
@@ -63,13 +62,6 @@ call minpac#add('sodapopcan/vim-twiggy')
 let g:twiggy_local_branch_sort = 'date'
 let g:twiggy_remote_branch_sort = 'date'
 
-" call minpac#add('dense-analysis/ale')
-" let g:ale_completion_enabled = 0
-" nmap <silent> [W <Plug>(ale_first)
-" nmap <silent> [w <Plug>(ale_previous)
-" nmap <silent> ]w <Plug>(ale_next)
-" nmap <silent> ]W <Plug>(ale_last)
-
 call minpac#add('junegunn/fzf.vim')
 nnoremap <Leader>b :Buffers<CR>
 
@@ -79,9 +71,11 @@ call minpac#add('ryanoasis/vim-devicons')
 
 call minpac#add('ntpeters/vim-better-whitespace')
 
+call minpac#add('ervandew/supertab')
 call minpac#add('sirver/ultisnips')
-
 call minpac#add('honza/vim-snippets')
+let g:UltiSnipsListSnippets = "<c-x><c-s>"
+
 
 call minpac#add('mbbill/undotree')
 nmap <silent> <Leader>u :UndotreeToggle<CR>:UndotreeFocus<CR>
@@ -99,20 +93,13 @@ let ruby_spellcheck_strings = 1
 call minpac#add('alvan/vim-closetag')
 let g:closetag_filetypes = 'html,xhtml,phtml,vue'
 
-call minpac#add('machakann/vim-highlightedyank')
-
-call minpac#add('maxbrunsfeld/vim-yankstack')
+" call minpac#add('machakann/vim-highlightedyank')
 
 call minpac#add('sbdchd/neoformat')
 " let g:neoformat_verbose = 1
 
 " call minpac#add('prettier/vim-prettier')
 " call minpac#add('ngmy/vim-rubocop')
-
-
-call minpac#add('google/vim-maktaba')
-call minpac#add('google/vim-codefmt')
-call minpac#add('google/vim-glaive')
 
 call minpac#add('neowit/vim-force.com')
 " Download the jar from https://github.com/neowit/tooling-force.com/releases
@@ -146,7 +133,7 @@ call minpac#add('digitaltoad/vim-pug')
 
 " Wayland system clipboard copy/paste. Can remove this once this issue has
 " been resolved:  https://github.com/vim/vim/issues/5157
-call minpac#add('kana/vim-fakeclip')
+" call minpac#add('kana/vim-fakeclip')
 call minpac#add('wincent/terminus')
 
 " Python folding
@@ -158,14 +145,6 @@ au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/pack/minpac/start/XML-Folding
 call minpac#add('cespare/vim-toml')
 
 call minpac#add('vim-scripts/loremipsum')
-
-call minpac#add('pechorin/any-jump.vim')
-let g:any_jump_search_prefered_engine = 'ag'
-
-" call minpac#add('jlanzarotta/bufexplorer')
-" nnoremap <Leader>b :BufExplorer<CR>
-" let g:bufExplorerDisableDefaultKeyMapping=1
-" let g:bufExplorerShowTabBuffer=1
 
 call minpac#add('nvim-lua/diagnostic-nvim')
 
@@ -192,4 +171,8 @@ let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-bash-debug', 'vscode-nod
 call minpac#add('RRethy/vim-hexokinase', { 'do': 'make hexokinase' })
 
 call minpac#add('godlygeek/tabular')
+
+" call minpac#add('roman/golden-ratio')
+
+" call minpac#add('christoomey/vim-tmux-navigator')
 
