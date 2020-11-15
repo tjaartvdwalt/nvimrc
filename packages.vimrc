@@ -184,5 +184,7 @@ call minpac#add('easymotion/vim-easymotion')
 
 call minpac#add('rhysd/conflict-marker.vim')
 
+call minpac#add('andrewradev/splitjoin.vim')
+
 " call minpac#add('christoomey/vim-tmux-navigator')
 
