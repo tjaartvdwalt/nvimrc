@@ -32,10 +32,15 @@ hi LspDiagnosticsWarning guifg=#d33682 guibg=#073642 guisp=NONE gui=bold cterm=b
 hi LspDiagnosticsInformation guifg=#b58900 guibg=#073642 guisp=NONE gui=bold cterm=bold
 hi LspDiagnosticsHint guifg=#fdf6e3 guibg=#073642 guisp=NONE gui=bold cterm=bold
 
-hi LspDiagnosticsUnderlineError guifg=#dc322f guibg=#073642 guisp=NONE gui=undercurl cterm=undercurl
-hi LspDiagnosticsUnderlineWarning guifg=#d33682#b58900 guibg=#073642 guisp=NONE gui=undercurl cterm=undercurl
-hi LspDiagnosticsUnderlineInfo guifg=#b58900 guibg=#073642 guisp=NONE gui=undercurl cterm=undercurl
-hi LspDiagnosticsUnderlineHint guifg=#fdf6e3 guibg=#073642 guisp=NONE gui=undercurl cterm=undercurl
+hi LspDiagnosticsUnderlineError gui=undercurl cterm=undercurl
+hi LspDiagnosticsUnderlineWarning gui=undercurl cterm=undercurl
+hi LspDiagnosticsUnderlineInfo gui=undercurl cterm=undercurl
+hi LspDiagnosticsUnderlineHint gui=undercurl cterm=undercurl
+
+" hi LspDiagnosticsUnderlineError guifg=#dc322f guibg=#073642 guisp=NONE gui=undercurl cterm=undercurl
+" hi LspDiagnosticsUnderlineWarning guifg=#d33682#b58900 guibg=#073642 guisp=NONE gui=undercurl cterm=undercurl
+" hi LspDiagnosticsUnderlineInfo guifg=#b58900 guibg=#073642 guisp=NONE gui=undercurl cterm=undercurl
+" hi LspDiagnosticsUnderlineHint guifg=#fdf6e3 guibg=#073642 guisp=NONE gui=undercurl cterm=undercurl
 
 " call minpac#add('joshdick/onedark.vim', {'name':'onedark','type': 'opt'})
 " packadd! onedark.vim

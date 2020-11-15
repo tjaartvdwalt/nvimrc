@@ -16,9 +16,9 @@ set smartcase
 set spellfile=~/.vim/spell/en.utf-8.add
 set tabstop=4
 set tags=tags;/
-set wildmode=list:longest
+set wildmode=longest:list,full
 set mouse=a
-set clipboard=unnamed
+set clipboard^=unnamed,unnamedplus
 set updatetime=750
 
 "Manage undo files

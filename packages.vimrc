@@ -49,6 +49,7 @@ let g:diffget_upstream_map = 'gu'
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 let g:airline_powerline_fonts = 1
+let g:airline_highlighting_cache = 1
 " Poor man's airline plugin, add conflicted text to section c
 let g:airline_section_c = '%F    %{ConflictedVersion()}'
 " let g:airline#extensions#ale#enabled = 1
@@ -63,7 +64,8 @@ let g:twiggy_local_branch_sort = 'date'
 let g:twiggy_remote_branch_sort = 'date'
 
 call minpac#add('junegunn/fzf.vim')
-nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
 
 call minpac#add('airblade/vim-gitgutter')
 
@@ -74,7 +76,7 @@ call minpac#add('ntpeters/vim-better-whitespace')
 call minpac#add('ervandew/supertab')
 call minpac#add('sirver/ultisnips')
 call minpac#add('honza/vim-snippets')
-let g:UltiSnipsListSnippets = "<c-x><c-s>"
+" let g:UltiSnipsListSnippets = "<c-x><c-s>"
 
 
 call minpac#add('mbbill/undotree')
@@ -172,7 +174,15 @@ call minpac#add('RRethy/vim-hexokinase', { 'do': 'make hexokinase' })
 
 call minpac#add('godlygeek/tabular')
 
-" call minpac#add('roman/golden-ratio')
+call minpac#add('mattn/webapi-vim')
+call minpac#add('mattn/vim-gist')
+
+call minpac#add('colmbus72/slim')
+command! Slack :call slim#StartSlack()
+
+call minpac#add('easymotion/vim-easymotion')
+
+call minpac#add('rhysd/conflict-marker.vim')
 
 " call minpac#add('christoomey/vim-tmux-navigator')
 

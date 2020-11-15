@@ -1,6 +1,9 @@
 let g:projectionist_heuristics = {
-      \   ".git/": {
+      \   "bitbucket-pipelines.yml": {
       \     "bitbucket-pipelines.yml": {"type": "pipeline"}
+      \   },
+      \   ".gitignore": {
+      \     ".gitignore": {"type": "gitignore"}
       \   },
       \   "package.json": {
       \     "package.json": {"type": "package"}
@@ -13,11 +16,14 @@ let g:projectionist_heuristics = {
       \     "test/*.spec.js": {"type": "test"}
       \   },
       \   "vue.config.js": {
-      \     "src/*.vue": {"type": "vue"},
+      \     "src/*.vue": {"type": "source"},
+      \     "src/*.ts": {"type": "source"},
+      \     "src/*.js": {"type": "source"},
       \     "tests/*.spec.ts": {"type": "test"},
+      \     "tests/*.spec.js": {"type": "test"},
       \     "src/components/*.vue": {
       \       "type": "component",
-      \       "alternate": "tests/unit/{basename}.ts"
+      \       "alternate": "tests/*/{basename}.spec.ts"
       \      },
       \     "src/views/*.vue": {"type": "view"},
       \     "src/store/modules/*.ts": {
@@ -30,7 +36,6 @@ let g:projectionist_heuristics = {
       \       "type": "unit",
       \       "alternate":"src/{dirname}/{basename}.ts"
       \     },
-      \     "tests/e2e/specs/*.js": {"type": "integration"}
       \   },
       \   "sfdx-project.json": {
       \     "force-app/main/default/lwc/*.html": {

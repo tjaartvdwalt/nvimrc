@@ -5,6 +5,7 @@ if !exists('g:vscode')
   source ~/.config/nvim/keys.vimrc
   source ~/.config/nvim/notmuch.vimrc
   source ~/.config/nvim/lsp.vimrc
+  source ~/.config/nvim/treesitter.vimrc
   source ~/.config/nvim/themes.vimrc
 
   augroup LuaHighlight
