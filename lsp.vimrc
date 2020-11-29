@@ -1,4 +1,5 @@
 call minpac#add('neovim/nvim-lsp')
+call minpac#add('neovim/nvim-lspconfig')
 call minpac#add('nvim-lua/diagnostic-nvim')
 call minpac#add('nvim-lua/completion-nvim')
 
@@ -27,13 +28,13 @@ lua << EOF
 vim.cmd('packadd diagnostic-nvim')
 vim.cmd('packadd nvim-lsp')
 
-local lsp = require 'nvim_lsp'
+local lsp = require 'lspconfig'
 local nvim_command = vim.api.nvim_command
 
 local on_attach = function(client)
   require'diagnostic'.on_attach()
   -- nvim_command("autocmd CursorHold <buffer> lua require'jumpLoc'.openLineDiagnostics()")
-  require'completion'.on_attach()
+  -- require'completion'.on_attach()
 
 end
 

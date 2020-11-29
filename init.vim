@@ -8,12 +8,9 @@ if !exists('g:vscode')
   source ~/.config/nvim/treesitter.vimrc
   source ~/.config/nvim/themes.vimrc
 
-  augroup LuaHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
-  augroup END
-
   " Update minpac
   call minpac#add('k-takata/minpac', {'type': 'opt', 'branch': 'devel'})
+
+  set inccommand=split
 
 endif

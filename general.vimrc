@@ -43,7 +43,7 @@ augroup turbo_commit
   autocmd BufEnter COMMIT_EDITMSG startinsert
 augroup END
 
-
+autocmd BufEnter *.png,*.jpg,*gif exec "! imgcat ".expand("%")
 
 let mapleader = " "
 
@@ -51,3 +51,4 @@ syntax enable
 filetype plugin on
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_sort_options = "i"
+

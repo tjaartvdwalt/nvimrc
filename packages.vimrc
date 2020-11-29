@@ -32,6 +32,18 @@ call minpac#add('tpope/vim-obsession')
 call minpac#add('tpope/vim-projectionist')
 call minpac#add('tpope/vim-rails')
 call minpac#add('tpope/vim-rake')
+call minpac#add('tpope/vim-ragtag')
+let g:ragtag_global_maps = 1
+" augroup ragtag
+"   autocmd!
+"   autocmd BufReadPost * if ! did_filetype() && getline(1)." ".getline(2).
+"         \ " ".getline(3) =~? '<\%(!DOCTYPE \)\=html\>' | setf html | endif
+"   autocmd InsertLeave * call s:Leave()
+"   autocmd CursorHold * if exists("b:loaded_ragtag") | call s:Leave() | endif
+"   autocmd FileType vue call s:Init()
+" augroup END
+
+
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('tpope/vim-sleuth')
 call minpac#add('tpope/vim-speeddating')
@@ -64,6 +76,7 @@ let g:twiggy_local_branch_sort = 'date'
 let g:twiggy_remote_branch_sort = 'date'
 
 call minpac#add('junegunn/fzf.vim')
+let g:fzf_preview_window = ['right:40%', 'ctrl-/']
 nnoremap <Leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 
@@ -93,9 +106,9 @@ let ruby_fold = 1
 let ruby_spellcheck_strings = 1
 
 call minpac#add('alvan/vim-closetag')
-let g:closetag_filetypes = 'html,xhtml,phtml,vue'
+" let g:closetag_filetypes = 'html,xhtml,phtml,vue'
 
-" call minpac#add('machakann/vim-highlightedyank')
+call minpac#add('machakann/vim-highlightedyank')
 
 call minpac#add('sbdchd/neoformat')
 " let g:neoformat_verbose = 1
@@ -186,5 +199,6 @@ call minpac#add('rhysd/conflict-marker.vim')
 
 call minpac#add('andrewradev/splitjoin.vim')
 
+call minpac#add('chrisbra/csv.vim')
 " call minpac#add('christoomey/vim-tmux-navigator')
 
