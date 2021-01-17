@@ -1,49 +1,44 @@
 call minpac#add('neovim/nvim-lsp')
 call minpac#add('neovim/nvim-lspconfig')
-call minpac#add('nvim-lua/diagnostic-nvim')
 call minpac#add('nvim-lua/completion-nvim')
 
-" let g:diagnostic_enable_underline = 1
-let g:diagnostic_insert_delay = 1
-let g:diagnostic_enable_virtual_text = 1
-let g:space_before_virtual_text = 5
+nnoremap <silent> [w <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
+nnoremap <silent> ]w <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 
-nmap <silent> [W :FirstDiagnostic<cr>
-nmap <silent> [w :PrevDiagnosticCycle<cr>
-nmap <silent> ]w :NextDiagnosticCycle<cr>
-nmap <silent> ]W :LastDiagnostic<cr>
-
-call sign_define("LspDiagnosticsErrorSign", {"text" : ">>", "texthl" : "LspDiagnosticsError"})
-call sign_define("LspDiagnosticsWarningSign", {"text" : "--", "texthl" : "LspDiagnosticsWarning"})
-call sign_define("LspDiagnosticsInformationSign", {"text" : "!!", "texthl" : "LspDiagnosticsInformation"})
-call sign_define("LspDiagnosticsHintSign", {"text" : "??", "texthl" : "LspDiagnosticsHint"})
+sign define LspDiagnosticsSignError text=>> texthl=LspDiagnosticsError linehl= numhl=
+sign define LspDiagnosticsSignWarning text=-- texthl=LspDiagnosticsWarning linehl= numhl=
+sign define LspDiagnosticsSignInformation text=!! texthl=LspDiagnosticsInformation linehl= numhl=
+sign define LspDiagnosticsSignHint text=?? texthl=LspDiagnosticsHint linehl= numhl=
 
 set completeopt=menuone,noinsert,noselect
 let g:completion_enable_auto_popup = 1
 let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_enable_auto_signature = 1
-imap <silent> <c-p> <Plug>(completion_trigger)
+
 
 lua << EOF
-vim.cmd('packadd diagnostic-nvim')
 vim.cmd('packadd nvim-lsp')
 
 local lsp = require 'lspconfig'
 local nvim_command = vim.api.nvim_command
 
 local on_attach = function(client)
-  require'diagnostic'.on_attach()
   -- nvim_command("autocmd CursorHold <buffer> lua require'jumpLoc'.openLineDiagnostics()")
-  -- require'completion'.on_attach()
+  require'completion'.on_attach()
 
 end
 
+-- sudo npm install -g vscode-css-languageserver-bin
 lsp.cssls.setup{on_attach = on_attach}
+-- sudo npm install -g dockerfile-language-server-nodejs
 lsp.dockerls.setup{on_attach = on_attach}
 lsp.gopls.setup{on_attach = on_attach}
+-- sudo npm install -g vscode-html-languageserver-bin
 lsp.html.setup{on_attach = on_attach}
+-- sudo npm install -g vscode-json-languageserver
 lsp.jsonls.setup{on_attach = on_attach}
 lsp.pyls.setup{on_attach = on_attach}
+-- gem install solargraph
 lsp.solargraph.setup{
   on_attach = on_attach,
   settings = {
@@ -53,9 +48,13 @@ lsp.solargraph.setup{
     }
   }
 }
+-- sudo npm install -g typescript typescript-language-server
 lsp.tsserver.setup{on_attach = on_attach}
+-- sudo npm install -g vim-language-server
 lsp.vimls.setup{on_attach = on_attach}
+-- sudo npm install -g vls
 lsp.vuels.setup{on_attach = on_attach}
+-- sudo npm install -g yaml-language-server
 lsp.yamlls.setup{on_attach = on_attach}
 EOF
 
