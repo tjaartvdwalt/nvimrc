@@ -30,6 +30,7 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-heroku')
 call minpac#add('tpope/vim-obsession')
 call minpac#add('tpope/vim-projectionist')
+call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-rails')
 call minpac#add('tpope/vim-rake')
 call minpac#add('tpope/vim-ragtag')
@@ -81,6 +82,12 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 
 call minpac#add('airblade/vim-gitgutter')
+
+call minpac#add('aacunningham/vim-fuzzy-stash')
+let g:fuzzy_stash_actions = {
+  \ 'ctrl-d': 'drop',
+  \ 'ctrl-p': 'pop',
+  \ 'ctrl-a': 'apply' }
 
 call minpac#add('ryanoasis/vim-devicons')
 
@@ -202,3 +209,12 @@ call minpac#add('andrewradev/splitjoin.vim')
 call minpac#add('chrisbra/csv.vim')
 " call minpac#add('christoomey/vim-tmux-navigator')
 
+call minpac#add('glts/vim-magnum')
+call minpac#add('glts/vim-radical')
+
+call minpac#add('svermeulen/vim-yoink')
+nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+nmap <c-f> <plug>(YoinkPostPasteSwapForward)
+
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
