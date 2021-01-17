@@ -13,7 +13,8 @@ set omnifunc=syntaxcomplete#Complete
 
 set showcmd
 set smartcase
-set spellfile=~/.vim/spell/en.utf-8.add
+set spellfile=~/.config/nvim/spell/en.utf-8.add
+set spell
 set tabstop=4
 set tags=tags;/
 set wildmode=longest:list,full
@@ -41,6 +42,7 @@ endif
 augroup turbo_commit
   autocmd!
   autocmd BufEnter COMMIT_EDITMSG startinsert
+  autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell
 augroup END
 
 autocmd BufEnter *.png,*.jpg,*gif exec "! imgcat ".expand("%")
