@@ -1,4 +1,10 @@
 let g:projectionist_heuristics = {
+      \   ".github/workflows/*.yml": {
+      \     ".github/workflows/*.yml": {"type": "github-workflow"}
+      \   },
+      \   ".github/actions/*.yml": {
+      \     ".github/actions/*.yml": {"type": "github-action"}
+      \   },
       \   "bitbucket-pipelines.yml": {
       \     "bitbucket-pipelines.yml": {"type": "pipeline"}
       \   },
