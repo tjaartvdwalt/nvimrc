@@ -7,9 +7,6 @@ set nofoldenable
 set nu
 
 set omnifunc=syntaxcomplete#Complete
-" set omnifunc=syntaxcomplete#Complete
-" set omnifunc=ale#completion#OmniFunc
-" set completeopt=menu,menuone,popup,noselect,noinsert
 
 set showcmd
 set smartcase
