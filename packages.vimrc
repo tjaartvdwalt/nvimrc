@@ -81,7 +81,9 @@ let g:fzf_preview_window = ['right:40%', 'ctrl-/']
 nnoremap <Leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 
-call minpac#add('airblade/vim-gitgutter')
+" call minpac#add('airblade/vim-gitgutter')
+call minpac#add('mhinz/vim-signify')
+set updatetime=100
 
 call minpac#add('aacunningham/vim-fuzzy-stash')
 let g:fuzzy_stash_actions = {
@@ -218,3 +220,5 @@ nmap <c-f> <plug>(YoinkPostPasteSwapForward)
 
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
+
+call minpac#add('jamessan/vim-gnupg')
