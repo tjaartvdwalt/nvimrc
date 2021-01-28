@@ -132,20 +132,20 @@ let g:apex_backup_folder='/tmp/apex/backup'
 let g:apex_temp_folder='/tmp/apex/gvim-deployment'
 let g:apex_properties_folder='/tmp/apex/properties'
 
-call minpac#add('blindfs/vim-taskwarrior')
+" call minpac#add('blindfs/vim-taskwarrior')
 
-call minpac#add('mtth/scratch.vim')
-let g:scratch_autohide = 1
-let g:scratch_insert_autohide = 1
+" call minpac#add('mtth/scratch.vim')
+" let g:scratch_autohide = 1
+" let g:scratch_insert_autohide = 1
 
 call minpac#add('plasticboy/vim-markdown')
 " let g:vim_markdown_folding_disabled = 1
 call minpac#add('iamcco/markdown-preview.nvim', {'do': 'call mkdp#util#install()'})
 
-call minpac#add('gcmt/taboo.vim')
-" let g:taboo_renamed_tab_format = " [%l]%I%m"
-" let g:taboo_tabline = 0
-set sessionoptions+=tabpages,globals
+" call minpac#add('gcmt/taboo.vim')
+" " let g:taboo_renamed_tab_format = " [%l]%I%m"
+" " let g:taboo_tabline = 0
+" set sessionoptions+=tabpages,globals
 
 call minpac#add('leafOfTree/vim-vue-plugin')
 let g:vim_vue_plugin_load_full_syntax = 1
@@ -155,10 +155,10 @@ let g:vim_vue_plugin_highlight_vue_attr = 1
 let g:vim_vue_plugin_use_foldexpr = 1
 call minpac#add('digitaltoad/vim-pug')
 
-" Wayland system clipboard copy/paste. Can remove this once this issue has
-" been resolved:  https://github.com/vim/vim/issues/5157
+" " Wayland system clipboard copy/paste. Can remove this once this issue has
+" " been resolved:  https://github.com/vim/vim/issues/5157
 " call minpac#add('kana/vim-fakeclip')
-call minpac#add('wincent/terminus')
+" call minpac#add('wincent/terminus')
 
 " Python folding
 call minpac#add('tmhedberg/simpylfold')
@@ -202,7 +202,7 @@ call minpac#add('mattn/vim-gist')
 call minpac#add('colmbus72/slim')
 command! Slack :call slim#StartSlack()
 
-call minpac#add('easymotion/vim-easymotion')
+" call minpac#add('easymotion/vim-easymotion')
 
 call minpac#add('rhysd/conflict-marker.vim')
 
@@ -213,12 +213,5 @@ call minpac#add('chrisbra/csv.vim')
 
 call minpac#add('glts/vim-magnum')
 call minpac#add('glts/vim-radical')
-
-call minpac#add('svermeulen/vim-yoink')
-nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-nmap <c-f> <plug>(YoinkPostPasteSwapForward)
-
-nmap p <plug>(YoinkPaste_p)
-nmap P <plug>(YoinkPaste_P)
 
 call minpac#add('jamessan/vim-gnupg')

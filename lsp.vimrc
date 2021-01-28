@@ -5,10 +5,10 @@ call minpac#add('nvim-lua/completion-nvim')
 nnoremap <silent> [w <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
 nnoremap <silent> ]w <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 
-sign define LspDiagnosticsSignError text=>> texthl=LspDiagnosticsError linehl= numhl=
-sign define LspDiagnosticsSignWarning text=-- texthl=LspDiagnosticsWarning linehl= numhl=
-sign define LspDiagnosticsSignInformation text=!! texthl=LspDiagnosticsInformation linehl= numhl=
-sign define LspDiagnosticsSignHint text=?? texthl=LspDiagnosticsHint linehl= numhl=
+" sign define LspDiagnosticsSignError text=>> texthl=LspDiagnosticsError linehl= numhl=
+" sign define LspDiagnosticsSignWarning text=-- texthl=LspDiagnosticsWarning linehl= numhl=
+" sign define LspDiagnosticsSignInformation text=!! texthl=LspDiagnosticsInformation linehl= numhl=
+" sign define LspDiagnosticsSignHint text=?? texthl=LspDiagnosticsHint linehl= numhl=
 
 set completeopt=menuone,noinsert,noselect
 let g:completion_enable_auto_popup = 1
@@ -17,13 +17,21 @@ let g:completion_enable_auto_signature = 1
 
 
 lua << EOF
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    virtual_text = false,
+    signs = true,
+    update_in_insert = true,
+  }
+)
+
 vim.cmd('packadd nvim-lsp')
 
 local lsp = require 'lspconfig'
 local nvim_command = vim.api.nvim_command
 
 local on_attach = function(client)
-  -- nvim_command("autocmd CursorHold <buffer> lua require'jumpLoc'.openLineDiagnostics()")
   require'completion'.on_attach()
 
 end

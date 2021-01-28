@@ -15,7 +15,6 @@ set spell
 set tabstop=4
 set tags=tags;/
 set wildmode=longest:list,full
-set mouse=a
 set clipboard^=unnamed,unnamedplus
 set updatetime=750
 
