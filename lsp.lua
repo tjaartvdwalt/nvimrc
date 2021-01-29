@@ -1,8 +1,13 @@
+vim.cmd("call minpac#add('nvim/nvim-lsp')")
+vim.cmd("call minpac#add('nvim/nvim-lspconfig')")
+vim.cmd("call minpac#add('nvim-lua/completion-nvim')")
+
+
 vim.cmd('packadd! nvim-lsp')
 vim.cmd('packadd! nvim-lspconfig')
 vim.cmd('packadd! completion-nvim')
 
--- completeopt=menuone,noinsert,noselect
+vim.cmd('set completeopt=menuone,noinsert,noselect')
 
 vim.g['completion_enable_auto_popup'] = 1
 vim.g['completion_enable_snippet'] = 'UltiSnips'
