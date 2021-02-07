@@ -6,7 +6,7 @@ nnoremap <C-l> :nohlsearch<CR><C-l>
 nnoremap <leader>v :e ~/.config/nvim/<CR>
 nnoremap <leader>s :set spell!<CR>
 nnoremap <leader>c :cd %:p:h<CR>:pwd<CR>
-nnoremap <leader>- :Explore<CR>
+" nnoremap <leader>- :Explore<CR>
 
 " Make escape work properly in terminal mode
 tnoremap <Esc> <C-\><C-n>

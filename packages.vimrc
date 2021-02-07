@@ -44,6 +44,10 @@ let g:ragtag_global_maps = 1
 "   autocmd FileType vue call s:Init()
 " augroup END
 
+" call minpac#add('preservim/nerdtree')
+" nnoremap <leader>- :NERDTreeToggle<CR>
+" let NERDTreeWinPos = 'right'
+" let NERDTreeWinSize = 50
 
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('tpope/vim-sleuth')
@@ -67,7 +71,7 @@ let g:airline_highlighting_cache = 1
 let g:airline_section_c = '%F    %{ConflictedVersion()}'
 " let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 call minpac#add('junegunn/gv.vim')
@@ -77,7 +81,7 @@ let g:twiggy_local_branch_sort = 'date'
 let g:twiggy_remote_branch_sort = 'date'
 
 call minpac#add('junegunn/fzf.vim')
-let g:fzf_preview_window = ['right:40%', 'ctrl-/']
+let g:fzf_preview_window = ['up:50%', 'ctrl-/']
 nnoremap <Leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 
@@ -206,7 +210,7 @@ command! Slack :call slim#StartSlack()
 
 call minpac#add('rhysd/conflict-marker.vim')
 
-call minpac#add('andrewradev/splitjoin.vim')
+" call minpac#add('andrewradev/splitjoin.vim')
 
 call minpac#add('chrisbra/csv.vim')
 " call minpac#add('christoomey/vim-tmux-navigator')
@@ -215,3 +219,8 @@ call minpac#add('glts/vim-magnum')
 call minpac#add('glts/vim-radical')
 
 call minpac#add('jamessan/vim-gnupg')
+
+call minpac#add('lifepillar/pgsql.vim')
+
+" au BufNewFile,BufRead *.psql let b:sql_type_override='pgsql'
+

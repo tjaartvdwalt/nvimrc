@@ -68,6 +68,14 @@ let g:projectionist_heuristics = {
       \       "type": "trigger"
       \     },
       \     "force-app/main/default/*": {"dispatch": "sfdx force:source:deploy -u WestmontSandbox --sourcepath force-app/main/default/{dirname}"}
+      \   },
+      \   "setup.py": {
+      \     "*.py": {"type": "source",
+      \       "alternate": "tests/*/test_{basename}.py"
+      \      },
+      \     "tests/*.py": {"type": "source",
+      \       "alternate": "tests/*/test_{basename}.py"
+      \      },
       \   }
       \}
 

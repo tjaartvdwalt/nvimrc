@@ -12,7 +12,7 @@ set showcmd
 set smartcase
 set spellfile=~/.config/nvim/spell/en.utf-8.add
 set spell
-set tabstop=4
+set noexpandtab
 set tags=tags;/
 set wildmode=longest:list,full
 set clipboard^=unnamed,unnamedplus
