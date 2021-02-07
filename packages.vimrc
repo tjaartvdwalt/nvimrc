@@ -196,7 +196,8 @@ call minpac#add('puremourning/vimspector')
 let g:vimspector_enable_mappings = 'HUMAN'
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-bash-debug', 'vscode-node-debug2' ]
 
-call minpac#add('RRethy/vim-hexokinase', { 'do': 'make hexokinase' })
+" call minpac#add('RRethy/vim-hexokinase', { 'do': 'make hexokinase' })
+call minpac#add('ap/vim-css-color')
 
 call minpac#add('godlygeek/tabular')
 
