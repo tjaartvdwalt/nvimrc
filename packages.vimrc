@@ -21,7 +21,9 @@ call minpac#add('tpope/vim-commentary')
 
 call minpac#add('tpope/vim-dadbod')
 call minpac#add('kristijanhusak/vim-dadbod-ui')
-call minpac#add('kristijanhusak/vim-dadbod-completion')
+if has('lua')
+  call minpac#add('kristijanhusak/vim-dadbod-completion')
+end
 
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-endwise')
