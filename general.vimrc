@@ -15,7 +15,7 @@ set spell
 set noexpandtab
 set tags=tags;/
 set wildmode=longest:list,full
-set clipboard^=unnamed,unnamedplus
+
 set updatetime=750
 
 "Manage undo files
@@ -41,7 +41,7 @@ augroup turbo_commit
   autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell
 augroup END
 
-autocmd BufEnter *.png,*.jpg,*gif exec "! imgcat ".expand("%")
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 let mapleader = " "
 

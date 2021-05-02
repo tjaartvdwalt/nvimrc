@@ -21,8 +21,8 @@ function! SetupCommandAlias(input, output)
 endfunction
 
 call SetupCommandAlias("f", "Neoformat")
-call SetupCommandAlias("g", "Git")
-call SetupCommandAlias("gs", "GStashList")
+call SetupCommandAlias("g", "vertical rightbelow Git")
+call SetupCommandAlias("gs", "Gclog -g stash")
 call SetupCommandAlias("git", "Git")
 call SetupCommandAlias("o", "only")
 call SetupCommandAlias("bo", "BufOnly")

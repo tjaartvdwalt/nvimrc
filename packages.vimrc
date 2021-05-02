@@ -2,6 +2,7 @@
 packadd minpac
 
 "built in plugin
+
 packadd! matchit
 
 call minpac#init()
@@ -21,9 +22,7 @@ call minpac#add('tpope/vim-commentary')
 
 call minpac#add('tpope/vim-dadbod')
 call minpac#add('kristijanhusak/vim-dadbod-ui')
-if has('lua')
-  call minpac#add('kristijanhusak/vim-dadbod-completion')
-end
+call minpac#add('kristijanhusak/vim-dadbod-completion')
 
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-endwise')
@@ -77,6 +76,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 call minpac#add('junegunn/gv.vim')
+call minpac#add('int3/vim-extradite')
 
 call minpac#add('sodapopcan/vim-twiggy')
 let g:twiggy_local_branch_sort = 'date'
@@ -90,12 +90,6 @@ nnoremap <leader>b :Buffers<CR>
 " call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mhinz/vim-signify')
 set updatetime=100
-
-call minpac#add('aacunningham/vim-fuzzy-stash')
-let g:fuzzy_stash_actions = {
-  \ 'ctrl-d': 'drop',
-  \ 'ctrl-p': 'pop',
-  \ 'ctrl-a': 'apply' }
 
 call minpac#add('ryanoasis/vim-devicons')
 
@@ -227,3 +221,15 @@ call minpac#add('lifepillar/pgsql.vim')
 
 " au BufNewFile,BufRead *.psql let b:sql_type_override='pgsql'
 
+call minpac#add('dmix/elvish.vim')
+
+call minpac#add('unblevable/quick-scope')
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+augroup END
+
+call minpac#add('jeffkreeftmeijer/vim-numbertoggle')
