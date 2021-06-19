@@ -1,19 +1,11 @@
 vim.cmd("call minpac#add('nvim/nvim-lsp')")
 vim.cmd("call minpac#add('nvim/nvim-lspconfig')")
-vim.cmd("call minpac#add('nvim-lua/completion-nvim')")
 
 
 vim.cmd('packadd! nvim-lsp')
 vim.cmd('packadd! nvim-lspconfig')
-vim.cmd('packadd! completion-nvim')
 
-vim.cmd('set completeopt=menuone,noinsert,noselect')
-
-vim.g['completion_enable_auto_popup'] = 0
-vim.g['completion_enable_snippet'] = 'UltiSnips'
-vim.g['completion_enable_auto_signature'] = 1
-
-vim.api.nvim_set_keymap('i', '<c-x>l', '<Plug>(completion_trigger)', {})
+vim.cmd('set completeopt=menuone,noselect')
 
 vim.api.nvim_set_keymap('n', '[w', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', {})
 vim.api.nvim_set_keymap('n', ']w', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', {})
@@ -43,7 +35,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 local lsp = require 'lspconfig'
 
 local on_attach = function(client)
-  require'completion'.on_attach()
 end
 
 -- sudo npm install -g vscode-css-languageserver-bin

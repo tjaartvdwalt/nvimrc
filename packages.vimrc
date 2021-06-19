@@ -3,8 +3,6 @@ packadd minpac
 
 "built in plugin
 
-packadd! matchit
-
 call minpac#init()
 
 " Set shortcut commands
@@ -12,9 +10,6 @@ command! PackClean call minpac#clean()
 command! PackUpdate call minpac#update()
 command! PackStatus call minpac#status()
 command! PackSync call minpac#clean() | call minpac#update()
-
-" Several language packs
-call minpac#add('sheerun/vim-polyglot')
 
 " All the Tim Pope plugins
 call minpac#add('tpope/vim-bundler')
@@ -56,7 +51,7 @@ call minpac#add('tpope/vim-speeddating')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-vinegar')
-autocmd FileType netrw setl bufhidden=wipe
+" autocmd FileType netrw setl bufhidden=wipe
 
 call minpac#add('whiteinge/diffconflicts')
 
@@ -147,12 +142,25 @@ call minpac#add('iamcco/markdown-preview.nvim', {'do': 'call mkdp#util#install()
 " " let g:taboo_tabline = 0
 " set sessionoptions+=tabpages,globals
 
-call minpac#add('leafOfTree/vim-vue-plugin')
-let g:vim_vue_plugin_load_full_syntax = 1
-let g:vim_vue_plugin_use_typescript = 1
-let g:vim_vue_plugin_use_sass = 1
-let g:vim_vue_plugin_highlight_vue_attr = 1
-let g:vim_vue_plugin_use_foldexpr = 1
+" call minpac#add('leafOfTree/vim-vue-plugin')
+" let g:vim_vue_plugin_config = {
+"       \'syntax': {
+"       \   'template': ['html'],
+"       \   'script': ['javascript', 'typescript'],
+"       \   'style': ['css', 'scss'],
+"       \},
+"       \'full_syntax': [],
+"       \'initial_indent': [],
+"       \'attribute': 0,
+"       \'keyword': 0,
+"       \'foldexpr': 0,
+"       \'debug': 0,
+"       \}
+" let g:vim_vue_plugin_load_full_syntax = 1
+" let g:vim_vue_plugin_use_typescript = 1
+" let g:vim_vue_plugin_use_sass = 1
+" let g:vim_vue_plugin_highlight_vue_attr = 1
+" let g:vim_vue_plugin_use_foldexpr = 1
 call minpac#add('digitaltoad/vim-pug')
 
 " " Wayland system clipboard copy/paste. Can remove this once this issue has
@@ -232,4 +240,9 @@ augroup qs_colors
   autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
 augroup END
 
-call minpac#add('jeffkreeftmeijer/vim-numbertoggle')
+call minpac#add('kshenoy/vim-signature')
+
+call minpac#add('francoiscabrol/ranger.vim')
+call minpac#add('rbgrouleff/bclose.vim')
+
+

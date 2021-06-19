@@ -41,8 +41,6 @@ augroup turbo_commit
   autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell
 augroup END
 
-autocmd TermOpen * setlocal nonumber norelativenumber
-
 let mapleader = " "
 
 syntax enable
