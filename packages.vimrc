@@ -244,5 +244,3 @@ call minpac#add('kshenoy/vim-signature')
 
 call minpac#add('francoiscabrol/ranger.vim')
 call minpac#add('rbgrouleff/bclose.vim')
-
-
