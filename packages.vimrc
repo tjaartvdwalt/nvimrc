@@ -187,18 +187,20 @@ call minpac#add('vim-test/vim-test')
 call minpac#add('mhinz/vim-grepper')
 nnoremap <Leader>a :ProjectDo GrepperAg<space>
 
-call minpac#add('MikeDacre/tmux-zsh-vim-titles')
-let g:tzvt_vim_include_path = 'zsh'
-let g:tzvt_vim_path_before = 0
-let g:has_zsh = 1
+" call minpac#add('MikeDacre/tmux-zsh-vim-titles')
+" let g:tzvt_vim_include_path = 'zsh'
+" let g:tzvt_vim_path_before = 0
+" let g:has_zsh = 1
 call minpac#add('editorconfig/editorconfig-vim')
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 call minpac#add('vim-scripts/BufOnly.vim')
 
 call minpac#add('puremourning/vimspector')
+nmap <Leader>di <Plug>VimspectorBalloonEval
 let g:vimspector_enable_mappings = 'HUMAN'
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-bash-debug', 'vscode-node-debug2' ]
+call minpac#add('sagi-z/vimspectorpy')
 
 " call minpac#add('RRethy/vim-hexokinase', { 'do': 'make hexokinase' })
 call minpac#add('ap/vim-css-color')
@@ -243,4 +245,3 @@ augroup END
 call minpac#add('kshenoy/vim-signature')
 
 call minpac#add('francoiscabrol/ranger.vim')
-call minpac#add('rbgrouleff/bclose.vim')

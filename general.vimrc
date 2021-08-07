@@ -15,6 +15,8 @@ set spell
 set noexpandtab
 set tags=tags;/
 set wildmode=longest:list,full
+set title
+set titlelen=33
 
 set updatetime=750
 
