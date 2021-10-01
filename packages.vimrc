@@ -79,7 +79,6 @@ let g:twiggy_remote_branch_sort = 'date'
 
 call minpac#add('junegunn/fzf.vim')
 let g:fzf_preview_window = ['up:50%', 'ctrl-/']
-nnoremap <Leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 
 " call minpac#add('airblade/vim-gitgutter')
@@ -110,7 +109,8 @@ let ruby_fold = 1
 let ruby_spellcheck_strings = 1
 
 call minpac#add('alvan/vim-closetag')
-" let g:closetag_filetypes = 'html,xhtml,phtml,vue'
+let g:closetag_filetypes = 'html,xhtml,phtml,vue'
+let g:closetag_shortcut = '>>'
 
 call minpac#add('machakann/vim-highlightedyank')
 
@@ -174,8 +174,6 @@ call minpac#add('tmhedberg/simpylfold')
 call minpac#add('vim-scripts/XML-Folding')
 au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/pack/minpac/start/XML-Folding/plugin/XMLFolding.vim
 
-call minpac#add('cespare/vim-toml')
-
 call minpac#add('vim-scripts/loremipsum')
 
 call minpac#add('nvim-lua/diagnostic-nvim')
@@ -196,12 +194,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 call minpac#add('vim-scripts/BufOnly.vim')
 
-call minpac#add('puremourning/vimspector')
-nmap <Leader>di <Plug>VimspectorBalloonEval
-let g:vimspector_enable_mappings = 'HUMAN'
-let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-bash-debug', 'vscode-node-debug2' ]
-call minpac#add('sagi-z/vimspectorpy')
-
 " call minpac#add('RRethy/vim-hexokinase', { 'do': 'make hexokinase' })
 call minpac#add('ap/vim-css-color')
 
@@ -209,9 +201,6 @@ call minpac#add('godlygeek/tabular')
 
 call minpac#add('mattn/webapi-vim')
 call minpac#add('mattn/vim-gist')
-
-call minpac#add('colmbus72/slim')
-command! Slack :call slim#StartSlack()
 
 " call minpac#add('easymotion/vim-easymotion')
 
@@ -245,3 +234,8 @@ augroup END
 call minpac#add('kshenoy/vim-signature')
 
 call minpac#add('francoiscabrol/ranger.vim')
+
+call minpac#add('vimwiki/vimwiki')
+
+call minpac#add('yggdroot/indentline')
+
