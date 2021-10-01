@@ -6,7 +6,7 @@ nnoremap <C-l> :nohlsearch<CR><C-l>
 nnoremap <leader>v :e ~/.config/nvim/<CR>
 nnoremap <leader>s :set spell!<CR>
 nnoremap <leader>c :cd %:p:h<CR>:pwd<CR>
-" nnoremap <leader>- :Explore<CR>
+nnoremap <leader>t :vsplit +terminal<CR>
 
 " Make escape work properly in terminal mode
 tnoremap <Esc> <C-\><C-n>
@@ -22,8 +22,8 @@ endfunction
 
 call SetupCommandAlias("f", "Neoformat")
 call SetupCommandAlias("g", "vertical rightbelow Git")
-call SetupCommandAlias("gs", "Gclog -g stash")
-call SetupCommandAlias("git", "vertical rightbelow Git")
+call SetupCommandAlias("gh", "Telescope gh")
+call SetupCommandAlias("gs", "Telescope git_stash")
 call SetupCommandAlias("o", "only")
 call SetupCommandAlias("bo", "BufOnly")
 call SetupCommandAlias("cdc", "cd %:p:h")
