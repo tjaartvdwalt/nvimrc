@@ -5,6 +5,7 @@ set incsearch
 set list
 set nofoldenable
 set nu
+set hidden
 
 set omnifunc=syntaxcomplete#Complete
 

@@ -67,7 +67,7 @@ let g:airline_highlighting_cache = 1
 let g:airline_section_c = '%F    %{ConflictedVersion()}'
 " let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 call minpac#add('junegunn/gv.vim')
@@ -183,7 +183,7 @@ call minpac#add('moll/vim-node')
 call minpac#add('vim-test/vim-test')
 
 call minpac#add('mhinz/vim-grepper')
-nnoremap <Leader>a :ProjectDo GrepperAg<space>
+nnoremap <Leader>a :ProjectDo GrepperRg<space>
 
 " call minpac#add('MikeDacre/tmux-zsh-vim-titles')
 " let g:tzvt_vim_include_path = 'zsh'
@@ -239,3 +239,5 @@ call minpac#add('vimwiki/vimwiki')
 
 call minpac#add('yggdroot/indentline')
 
+call minpac#add('vim-ctrlspace/vim-ctrlspace')
+let g:CtrlSpaceDefaultMappingKey = "<C-space> "
