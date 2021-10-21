@@ -5,8 +5,8 @@ if !exists('g:vscode')
     source ~/.config/nvim/keys.vimrc
     source ~/.config/nvim/themes.vimrc
 
+    luafile ~/.config/nvim/cmp.lua
     luafile ~/.config/nvim/nvim.lua
-    luafile ~/.config/nvim/compe.lua
     luafile ~/.config/nvim/debug.lua
     luafile ~/.config/nvim/lsp.lua
     luafile ~/.config/nvim/telescope.lua

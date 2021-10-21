@@ -1,6 +1,8 @@
 " Command mode shortcut
 nmap <C-u> :
 imap <C-u> <Esc>:
+nmap <C-c> :
+imap <C-c> <Esc>:
 nnoremap <C-l> :nohlsearch<CR><C-l>
 
 nnoremap <leader>v :e ~/.config/nvim/<CR>

@@ -239,5 +239,5 @@ call minpac#add('vimwiki/vimwiki')
 
 call minpac#add('yggdroot/indentline')
 
-call minpac#add('vim-ctrlspace/vim-ctrlspace')
-let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+" call minpac#add('vim-ctrlspace/vim-ctrlspace')
+" let g:CtrlSpaceDefaultMappingKey = "<C-space> "

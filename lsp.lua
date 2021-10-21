@@ -2,6 +2,8 @@ vim.cmd("call minpac#add('nvim/nvim-lspconfig')")
 
 vim.cmd("call minpac#add('kabouzeid/nvim-lspinstall')")
 
+vim.cmd("call minpac#add('hrsh7th/cmp-nvim-lsp')")
+
 local function setup_servers()
   require'lspinstall'.setup()
   local servers = require'lspinstall'.installed_servers()
@@ -52,6 +54,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 local lsp = require 'lspconfig'
 
 local on_attach = function(client)
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
 lsp.css.setup{on_attach = on_attach}
