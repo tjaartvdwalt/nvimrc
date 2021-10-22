@@ -1,24 +1,39 @@
 vim.cmd("call minpac#add('nvim/nvim-lspconfig')")
 
-vim.cmd("call minpac#add('kabouzeid/nvim-lspinstall')")
+vim.cmd("call minpac#add('williamboman/nvim-lsp-installer')")
 
 vim.cmd("call minpac#add('hrsh7th/cmp-nvim-lsp')")
 
-local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{}
-  end
-end
+local lsp_installer = require("nvim-lsp-installer")
 
-setup_servers()
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
 
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
+
+    -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
+    server:setup(opts)
+    vim.cmd [[ do User LspAttachBuffers ]]
+end)
+
+-- local function setup_servers()
+--   require'lspinstall'.setup()
+--   local servers = require'lspinstall'.installed_servers()
+--   for _, server in pairs(servers) do
+--     require'lspconfig'[server].setup{}
+--   end
+-- end
+
+-- setup_servers()
+
+-- -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+-- require'lspinstall'.post_install_hook = function ()
+--   setup_servers() -- reload installed servers
+--   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+-- end
 
 vim.cmd('packadd! nvim-lspconfig')
 
@@ -57,21 +72,21 @@ local on_attach = function(client)
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
-lsp.css.setup{on_attach = on_attach}
+lsp.cssls.setup{on_attach = on_attach}
 
-lsp.dockerfile.setup{on_attach = on_attach}
+lsp.dockerls.setup{on_attach = on_attach}
 
 -- lsp.gop.setup{on_attach = on_attach}
 
 lsp.html.setup{on_attach = on_attach}
 
-lsp.json.setup{on_attach = on_attach}
+lsp.jsonls.setup{on_attach = on_attach}
 
-lsp.lua.setup{on_attach = on_attach}
+lsp.sumneko_lua.setup{on_attach = on_attach}
 
-lsp.python.setup{on_attach = on_attach}
+lsp.pylsp.setup{on_attach = on_attach}
 
-lsp.ruby.setup{
+lsp.solargraph.setup{
   on_attach = on_attach,
   settings = {
     solargraph = {
@@ -81,11 +96,13 @@ lsp.ruby.setup{
   }
 }
 
-lsp.typescript.setup{on_attach = on_attach}
+lsp.sqls.setup{on_attach = on_attach}
 
-lsp.vim.setup{on_attach = on_attach}
+lsp.tsserver.setup{on_attach = on_attach}
 
-lsp.vue.setup{on_attach = on_attach}
+lsp.vimls.setup{on_attach = on_attach}
 
-lsp.yaml.setup{on_attach = on_attach}
+lsp.vuels.setup{on_attach = on_attach}
+
+lsp.yamlls.setup{on_attach = on_attach}
 
