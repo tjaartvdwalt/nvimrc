@@ -65,10 +65,9 @@ let g:airline_powerline_fonts = 1
 let g:airline_highlighting_cache = 1
 " Poor man's airline plugin, add conflicted text to section c
 let g:airline_section_c = '%F    %{ConflictedVersion()}'
-" let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline#extensions#tabline#buffer_nr_show = 1
 
 call minpac#add('junegunn/gv.vim')
 call minpac#add('int3/vim-extradite')
@@ -78,8 +77,10 @@ let g:twiggy_local_branch_sort = 'date'
 let g:twiggy_remote_branch_sort = 'date'
 
 call minpac#add('junegunn/fzf.vim')
-let g:fzf_preview_window = ['up:50%', 'ctrl-/']
+" let g:fzf_preview_window = ['up:50%:hidden', 'ctrl-/']
+let g:fzf_preview_window = []
 nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>w :Windows<CR>
 
 " call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mhinz/vim-signify')
@@ -110,7 +111,7 @@ let ruby_spellcheck_strings = 1
 
 call minpac#add('alvan/vim-closetag')
 let g:closetag_filetypes = 'html,xhtml,phtml,vue'
-let g:closetag_shortcut = '>>'
+let g:closetag_shortcut = '>/'
 
 call minpac#add('machakann/vim-highlightedyank')
 
@@ -176,14 +177,15 @@ au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/pack/minpac/start/XML-Folding
 
 call minpac#add('vim-scripts/loremipsum')
 
-call minpac#add('nvim-lua/diagnostic-nvim')
+" call minpac#add('nvim-lua/diagnostic-nvim')
 
 call minpac#add('moll/vim-node')
 
 call minpac#add('vim-test/vim-test')
 
 call minpac#add('mhinz/vim-grepper')
-nnoremap <Leader>a :ProjectDo GrepperRg<space>
+nnoremap <Leader>a :ProjectDo GrepperRg -S<space>
+nnoremap <Leader>/ :GrepperRg -S<space>
 
 " call minpac#add('MikeDacre/tmux-zsh-vim-titles')
 " let g:tzvt_vim_include_path = 'zsh'
@@ -235,7 +237,7 @@ call minpac#add('kshenoy/vim-signature')
 
 call minpac#add('francoiscabrol/ranger.vim')
 
-call minpac#add('vimwiki/vimwiki')
+" call minpac#add('vimwiki/vimwiki')
 
 call minpac#add('yggdroot/indentline')
 

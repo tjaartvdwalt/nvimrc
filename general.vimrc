@@ -33,6 +33,10 @@ augroup END
 autocmd BufEnter * silent! lcd %:p:h
 autocmd TabEnter * silent! tcd %:p:h
 
+let g:netrw_keepdir=0
+
+nnoremap <leader>c :lcd %:h<CR>
+
 "prevent nested instances
 if has('nvim') && executable('nvr')
   let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"

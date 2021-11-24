@@ -43,6 +43,7 @@ vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', {})
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', {})
+vim.api.nvim_set_keymap('n', 'gl', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', {})
 
 vim.api.nvim_set_keymap('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', {})
 vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {})
@@ -72,17 +73,19 @@ local on_attach = function(client)
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
+lsp.bashls.setup{on_attach = on_attach}
+
 lsp.cssls.setup{on_attach = on_attach}
 
 lsp.dockerls.setup{on_attach = on_attach}
 
--- lsp.gop.setup{on_attach = on_attach}
+lsp.gopls.setup{on_attach = on_attach}
 
 lsp.html.setup{on_attach = on_attach}
 
 lsp.jsonls.setup{on_attach = on_attach}
 
-lsp.sumneko_lua.setup{on_attach = on_attach}
+lsp.lemminx.setup{on_attach = on_attach}
 
 lsp.pylsp.setup{on_attach = on_attach}
 
@@ -97,6 +100,10 @@ lsp.solargraph.setup{
 }
 
 lsp.sqls.setup{on_attach = on_attach}
+
+lsp.sumneko_lua.setup{on_attach = on_attach}
+
+lsp.texlab.setup{on_attach = on_attach}
 
 lsp.tsserver.setup{on_attach = on_attach}
 
