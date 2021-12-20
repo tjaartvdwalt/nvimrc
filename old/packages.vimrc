@@ -91,9 +91,10 @@ call minpac#add('ryanoasis/vim-devicons')
 call minpac#add('ntpeters/vim-better-whitespace')
 
 call minpac#add('ervandew/supertab')
-call minpac#add('sirver/ultisnips')
-call minpac#add('honza/vim-snippets')
-" let g:UltiSnipsListSnippets = "<c-x><c-s>"
+" call minpac#add('sirver/ultisnips')
+" call minpac#add('honza/vim-snippets')
+" " let g:UltiSnipsListSnippets = "<c-x><c-s>"
+
 
 
 call minpac#add('mbbill/undotree')
@@ -109,9 +110,9 @@ call minpac#add('vim-ruby/vim-ruby')
 let ruby_fold = 1
 let ruby_spellcheck_strings = 1
 
-call minpac#add('alvan/vim-closetag')
-let g:closetag_filetypes = 'html,xhtml,phtml,vue'
-let g:closetag_shortcut = '>/'
+" call minpac#add('alvan/vim-closetag')
+" let g:closetag_filetypes = 'html,xhtml,phtml,vue'
+" let g:closetag_shortcut = '>/'
 
 call minpac#add('machakann/vim-highlightedyank')
 
@@ -240,6 +241,8 @@ call minpac#add('francoiscabrol/ranger.vim')
 " call minpac#add('vimwiki/vimwiki')
 
 call minpac#add('yggdroot/indentline')
+
+call minpac#add('tversteeg/registers.nvim')
 
 " call minpac#add('vim-ctrlspace/vim-ctrlspace')
 " let g:CtrlSpaceDefaultMappingKey = "<C-space> "

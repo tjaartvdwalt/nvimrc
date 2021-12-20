@@ -1,12 +1,4 @@
-vim.cmd("call minpac#add('nvim/nvim-lspconfig')")
-
-vim.cmd("call minpac#add('williamboman/nvim-lsp-installer')")
-
-vim.cmd("call minpac#add('hrsh7th/cmp-nvim-lsp')")
-
-local lsp_installer = require("nvim-lsp-installer")
-
-lsp_installer.on_server_ready(function(server)
+require("nvim-lsp-installer").on_server_ready(function(server)
     local opts = {}
 
     -- (optional) Customize the options passed to the server
@@ -35,7 +27,7 @@ end)
 --   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 -- end
 
-vim.cmd('packadd! nvim-lspconfig')
+-- vim.cmd('packadd! nvim-lspconfig')
 
 vim.cmd('set completeopt=menuone,noselect')
 
@@ -67,10 +59,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
-local lsp = require 'lspconfig'
+local lsp = require("lspconfig")
 
 local on_attach = function(client)
-  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  capabilities = pcall(require, "cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
 lsp.bashls.setup{on_attach = on_attach}
@@ -104,6 +96,8 @@ lsp.sqls.setup{on_attach = on_attach}
 lsp.sumneko_lua.setup{on_attach = on_attach}
 
 lsp.texlab.setup{on_attach = on_attach}
+
+lsp.tailwindcss.setup{on_attach = on_attach}
 
 lsp.tsserver.setup{on_attach = on_attach}
 

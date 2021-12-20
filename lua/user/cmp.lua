@@ -1,20 +1,14 @@
-vim.cmd("call minpac#add('hrsh7th/nvim-cmp')")
-vim.cmd("call minpac#add('hrsh7th/cmp-buffer')")
-vim.cmd("call minpac#add('quangnguyen30192/cmp-nvim-ultisnips')")
-
 vim.o.completeopt = "menuone,noselect"
-
-local cmp = require'cmp'
-
+local cmp = require("cmp")
   cmp.setup({
   completion = {
-    autocomplete = false
+    autocomplete = true
   },
-  snippet = {
-    expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body)
-    end,
-  },
+  -- snippet = {
+  --   expand = function(args)
+  --     require'luasnip'.lsp_expand(args.body)
+  --   end
+  -- },
   mapping = {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -27,7 +21,7 @@ local cmp = require'cmp'
   sources = {
     { name = 'nvim_lsp' },
 
-    { name = 'ultisnips' },
+    { name = 'luanips' },
 
     { name = 'buffer' },
   }
