@@ -47,6 +47,7 @@ return packer.startup(function(use)
 
 -- theme
 use 'lifepillar/vim-solarized8'
+-- use 'ishan9299/nvim-solarized-lua'
 
 -- cmp
 use 'hrsh7th/nvim-cmp'
@@ -145,9 +146,6 @@ use {
 use 'ryanoasis/vim-devicons'
 use 'ntpeters/vim-better-whitespace'
 
-
-use 'ervandew/supertab'
-
 use 'mbbill/undotree'
 
 use 'leafgarland/typescript-vim'
@@ -192,6 +190,8 @@ use 'francoiscabrol/ranger.vim'
 use 'yggdroot/indentline'
 
 use 'tversteeg/registers.nvim'
+
+use "ahmedkhalf/project.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
