@@ -46,7 +46,7 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
 
 -- theme
-use 'lifepillar/vim-solarized8'
+-- use 'lifepillar/vim-solarized8'
 -- use 'ishan9299/nvim-solarized-lua'
 
 -- cmp
@@ -117,7 +117,11 @@ vim.g['diffget_upstream_map'] = 'gu'
 -- -- " Poor man's airline plugin, add conflicted text to section c
 -- vim.g['airline_section_c'] = '%F    %{ConflictedVersion()}'
 
+use 'EdenEast/nightfox.nvim'
+require('nightfox').load('nightfox')
+
 use { 'famiu/feline.nvim' }
+require('feline').setup()
 
 use 'junegunn/gv.vim'
 use 'int3/vim-extradite'
