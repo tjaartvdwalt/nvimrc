@@ -66,6 +66,19 @@ use 'sbdchd/neoformat'
 use 'neovim/nvim-lspconfig'
 use 'williamboman/nvim-lsp-installer'
 
+-- Lua
+use {
+  "folke/trouble.nvim",
+  requires = "kyazdani42/nvim-web-devicons",
+  config = function()
+    require("trouble").setup {
+    }
+  end
+}
+
+-- dap
+use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+
 -- treesitter
 use 'nvim-treesitter/nvim-treesitter'
 use 'andymass/vim-matchup'
@@ -191,12 +204,29 @@ use 'kshenoy/vim-signature'
 
 use 'francoiscabrol/ranger.vim'
 
-use 'yggdroot/indentline'
+use 'lukas-reineke/indent-blankline.nvim'
+-- require("indent-blankline").setup {
+--     -- for example, context is off by default, use this to turn it on
+--     show_current_context = true,
+--     show_current_context_start = true,
+-- }
 
 use 'tversteeg/registers.nvim'
 
 use "ahmedkhalf/project.nvim"
 
+use "akinsho/toggleterm.nvim"
+require('toggleterm').setup{
+  direction = 'float'
+}
+
+use "justinmk/vim-sneak"
+
+use 'ojroques/nvim-buildme'
+
+use 'mtth/scratch.vim'
+vim.g['scratch_insert_autohide'] = 0
+vim.g['scratch_persistence_file'] =  '/tmp/scratch.vim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

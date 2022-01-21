@@ -35,7 +35,7 @@ vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', {})
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', {})
-vim.api.nvim_set_keymap('n', 'gl', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', {})
+vim.api.nvim_set_keymap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<CR>', {})
 
 vim.api.nvim_set_keymap('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', {})
 vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {})
@@ -44,6 +44,7 @@ vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {})
 vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {})
 vim.api.nvim_set_keymap('n', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {})
 vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', {})
+vim.api.nvim_set_keymap('n', 'gt', ':Trouble<CR>', {})
 vim.api.nvim_set_keymap('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', {})
 vim.api.nvim_set_keymap('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', {})
 
@@ -79,17 +80,21 @@ lsp.jsonls.setup{on_attach = on_attach}
 
 lsp.lemminx.setup{on_attach = on_attach}
 
+lsp.ltex.setup{on_attach = on_attach}
+
 lsp.pylsp.setup{on_attach = on_attach}
 
-lsp.solargraph.setup{
-  on_attach = on_attach,
-  settings = {
-    solargraph = {
-      diagnostics = true,
-      formatting = true
-    }
-  }
-}
+-- lsp.solargraph.setup{
+--   on_attach = on_attach,
+--   settings = {
+--     solargraph = {
+--       diagnostics = true,
+--       formatting = true
+--     }
+--   }
+-- }
+
+lsp.sorbet.setup{}
 
 lsp.sqls.setup{on_attach = on_attach}
 
@@ -97,13 +102,18 @@ lsp.sumneko_lua.setup{on_attach = on_attach}
 
 lsp.texlab.setup{on_attach = on_attach}
 
-lsp.tailwindcss.setup{on_attach = on_attach}
+-- lsp.tailwindcss.setup{on_attach = on_attach}
 
 lsp.tsserver.setup{on_attach = on_attach}
 
 lsp.vimls.setup{on_attach = on_attach}
 
-lsp.vuels.setup{on_attach = on_attach}
+-- lsp.vuels.setup{on_attach = on_attach}
+
+lsp.volar.setup{
+  -- on_attach = on_attach,
+  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+}
 
 lsp.yamlls.setup{on_attach = on_attach}
 
