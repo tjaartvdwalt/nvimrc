@@ -143,9 +143,9 @@ use 'sodapopcan/vim-twiggy'
 -- let g:twiggy_local_branch_sort = 'date'
 -- let g:twiggy_remote_branch_sort = 'date'
 
+use 'junegunn/fzf'
 use 'junegunn/fzf.vim'
 vim.g['fzf_preview_window'] = ''
-
 -- use 'mhinz/vim-signify'
 -- set updatetime=100
 
@@ -223,6 +223,10 @@ require('toggleterm').setup{
 use "justinmk/vim-sneak"
 
 use 'ojroques/nvim-buildme'
+
+use {'mattn/vim-gist', requires = {"mattn/webapi-vim"} }
+
+use 'fadein/vim-figlet'
 
 use 'mtth/scratch.vim'
 vim.g['scratch_insert_autohide'] = 0

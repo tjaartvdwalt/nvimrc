@@ -84,17 +84,19 @@ lsp.ltex.setup{on_attach = on_attach}
 
 lsp.pylsp.setup{on_attach = on_attach}
 
--- lsp.solargraph.setup{
---   on_attach = on_attach,
---   settings = {
---     solargraph = {
---       diagnostics = true,
---       formatting = true
---     }
---   }
--- }
+lsp.solargraph.setup{
+  on_attach = on_attach,
+  -- settings = {
+  --   solargraph = {
+  --     diagnostics = true,
+  --     formatting = true
+  --   }
+  -- }
+}
 
-lsp.sorbet.setup{}
+-- lsp.sorbet.setup{}
+
+lsp.sourcekit.setup{on_attach = on_attach}
 
 lsp.sqls.setup{on_attach = on_attach}
 
