@@ -131,7 +131,7 @@ vim.g['diffget_upstream_map'] = 'gu'
 -- vim.g['airline_section_c'] = '%F    %{ConflictedVersion()}'
 
 use 'EdenEast/nightfox.nvim'
-require('nightfox').load('nightfox')
+vim.cmd("colorscheme nightfox")
 
 use { 'famiu/feline.nvim' }
 require('feline').setup()
