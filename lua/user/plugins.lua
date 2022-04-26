@@ -204,7 +204,8 @@ use 'kshenoy/vim-signature'
 
 use 'francoiscabrol/ranger.vim'
 
-use 'lukas-reineke/indent-blankline.nvim'
+-- use 'lukas-reineke/indent-blankline.nvim'
+-- vim.cmd [[highlight IndentBlanklineIndent guifg=#E06C75 gui=nocombine]]
 -- require("indent-blankline").setup {
 --     -- for example, context is off by default, use this to turn it on
 --     show_current_context = true,
@@ -231,9 +232,55 @@ use 'fadein/vim-figlet'
 use 'mtth/scratch.vim'
 vim.g['scratch_insert_autohide'] = 0
 vim.g['scratch_persistence_file'] =  '/tmp/scratch.vim'
+
+
+use 'mickael-menu/zk-nvim'
+require("zk").setup({
+  picker = "fzf"
+})
+
+use {'stevearc/gkeep.nvim', run = ':UpdateRemotePlugins'}
+
+use 'jbyuki/venn.nvim'
+-- venn.nvim: enable or disable keymappings
+function _G.Toggle_venn()
+    local venn_enabled = vim.inspect(vim.b.venn_enabled)
+    if venn_enabled == "nil" then
+        vim.b.venn_enabled = true
+        vim.cmd[[setlocal ve=all]]
+        -- draw a line on HJKL keystokes
+        vim.api.nvim_buf_set_keymap(0, "n", "T", "<C-v>j:VBox<CR>", {noremap = true})
+        vim.api.nvim_buf_set_keymap(0, "n", "C", "<C-v>k:VBox<CR>", {noremap = true})
+        vim.api.nvim_buf_set_keymap(0, "n", "N", "<C-v>l:VBox<CR>", {noremap = true})
+        vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", {noremap = true})
+        -- draw a box by pressing "f" with visual selection
+        vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", {noremap = true})
+    else
+        vim.cmd[[setlocal ve=]]
+        vim.cmd[[mapclear <buffer>]]
+        vim.b.venn_enabled = nil
+    end
+end
+-- toggle keymappings for venn using <leader>v
+vim.api.nvim_set_keymap('n', '<leader>d', ":lua Toggle_venn()<CR>", { noremap = true})
+
+use {
+  'pwntester/octo.nvim',
+  requires = {
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
+    'kyazdani42/nvim-web-devicons',
+  },
+  config = function ()
+    require"octo".setup()
+  end
+}
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
 end)
+

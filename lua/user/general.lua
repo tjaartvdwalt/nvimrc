@@ -21,6 +21,7 @@ vim.opt.titlelen=33
 
 vim.opt.updatetime=750
 
+vim.cmd [[ set background=dark ]]
 
 vim.cmd [[
 "Manage undo files
