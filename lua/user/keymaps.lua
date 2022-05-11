@@ -24,6 +24,8 @@ keymap("n", "<Leader>a", ":ProjectDo GrepperRg -S<space>", { noremap = true })
 keymap("n", "<Leader>/", ":GrepperRg -S<space>", { noremap = true })
 
 
+keymap("n", "s", "<Plug>Sneak_s", {})
+keymap("n", "S", "<Plug>Sneak_S", {})
 keymap("n", "f", "<Plug>Sneak_f", {})
 keymap("n", "F", "<Plug>Sneak_F", {})
 keymap("n", "t", "<Plug>Sneak_t", {})

@@ -1,56 +1,3 @@
-require("nvim-lsp-installer").on_server_ready(function(server)
-    local opts = {}
-
-    -- (optional) Customize the options passed to the server
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
-
-    -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
-    server:setup(opts)
-    vim.cmd [[ do User LspAttachBuffers ]]
-end)
-
--- local function setup_servers()
---   require'lspinstall'.setup()
---   local servers = require'lspinstall'.installed_servers()
---   for _, server in pairs(servers) do
---     require'lspconfig'[server].setup{}
---   end
--- end
-
--- setup_servers()
-
--- -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
--- require'lspinstall'.post_install_hook = function ()
---   setup_servers() -- reload installed servers
---   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
--- end
-
--- vim.cmd('packadd! nvim-lspconfig')
-
-vim.cmd('set completeopt=menuone,noselect')
-
-vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', {})
-vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', {})
-vim.api.nvim_set_keymap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<CR>', {})
-
-vim.api.nvim_set_keymap('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', {})
-vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {})
-vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {})
-vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {})
-vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {})
-vim.api.nvim_set_keymap('n', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {})
-vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', {})
-vim.api.nvim_set_keymap('n', 'gt', ':Trouble<CR>', {})
-vim.api.nvim_set_keymap('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', {})
-vim.api.nvim_set_keymap('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', {})
-
-vim.api.nvim_set_keymap('n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>', {})
-vim.api.nvim_set_keymap('n', 'gR', '<cmd>lua vim.lsp.buf.rename()<CR>', {})
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
@@ -60,62 +7,152 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
-local lsp = require("lspconfig")
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local on_attach = function(client)
-  capabilities = pcall(require, "cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+  require 'illuminate'.on_attach(client)
 end
 
-lsp.bashls.setup{on_attach = on_attach}
+local servers = { 'bashls', 'cssls', 'dockerls', 'gopls', 'html', 'jsonls', 'lemminx', 'ltex', 'pylsp', 'sourcekit', 'sqls', 'sumneko_lua', 'texlab', 'tsserver', 'vimls', 'yamlls' }
 
-lsp.cssls.setup{on_attach = on_attach}
 
-lsp.dockerls.setup{on_attach = on_attach}
 
-lsp.gopls.setup{on_attach = on_attach}
 
-lsp.html.setup{on_attach = on_attach}
+for _, lsp in pairs(servers) do
+  require('lspconfig')[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+  }
+end
 
-lsp.jsonls.setup{on_attach = on_attach}
-
-lsp.lemminx.setup{on_attach = on_attach}
-
-lsp.ltex.setup{on_attach = on_attach}
-
-lsp.pylsp.setup{on_attach = on_attach}
-
-lsp.solargraph.setup{
+require('lspconfig')['solargraph'].setup {
   on_attach = on_attach,
-  -- settings = {
-  --   solargraph = {
-  --     diagnostics = true,
-  --     formatting = true
-  --   }
-  -- }
+  capabilities = capabilities,
+  settings = {
+    solargraph = {
+      diagnostics = true,
+      formatting = true
+    }
+  }
 }
 
--- lsp.sorbet.setup{}
-
-lsp.sourcekit.setup{on_attach = on_attach}
-
-lsp.sqls.setup{on_attach = on_attach}
-
-lsp.sumneko_lua.setup{on_attach = on_attach}
-
-lsp.texlab.setup{on_attach = on_attach}
-
--- lsp.tailwindcss.setup{on_attach = on_attach}
-
-lsp.tsserver.setup{on_attach = on_attach}
-
-lsp.vimls.setup{on_attach = on_attach}
-
--- lsp.vuels.setup{on_attach = on_attach}
-
-lsp.volar.setup{
-  -- on_attach = on_attach,
+require('lspconfig').volar.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
 }
 
-lsp.yamlls.setup{on_attach = on_attach}
+-- -- local on_attach = function(client)
+-- --   capabilities = pcall(require, "cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- -- end
+
+-- require('lspconfig').pylsp.setup{
+--   on_attach = on_attach,
+--   capabilities = capabilities
+-- }
+
+-- lsp.cssls.setup{
+--   on_attach = on_attach,
+--   capabilities = capabilities
+-- }
+
+-- lsp.dockerls.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- lsp.gopls.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- lsp.html.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- lsp.jsonls.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- lsp.lemminx.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- lsp.ltex.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- lsp.pylsp.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- -- lsp.sorbet.setup{}
+
+-- lsp.sourcekit.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- lsp.sqls.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- lsp.sumneko_lua.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- lsp.texlab.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- -- lsp.tailwindcss.setup{on_attach = on_attach}
+
+-- lsp.tsserver.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- lsp.vimls.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
+
+-- -- lsp.vuels.setup{on_attach = on_attach}
+
+-- lsp.yamlls.setup{
+--   on_attach = on_attach,
+--    capabilities = capabilities
+-- }
 

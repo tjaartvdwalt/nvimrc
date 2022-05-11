@@ -23,6 +23,9 @@ vim.opt.updatetime=750
 
 vim.cmd [[ set background=dark ]]
 
+-- Show only 1 status line
+vim.cmd [[ set laststatus=3 ]]
+
 vim.cmd [[
 "Manage undo files
 set undofile

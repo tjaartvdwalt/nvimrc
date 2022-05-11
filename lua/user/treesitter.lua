@@ -6,7 +6,7 @@ require("nvim-treesitter.configs").setup {
   },
   matchup = {
     enable = true,              -- mandatory, false will disable the whole extension
-    disable = { "vue" },              -- optional, list of language that will be disabled
+    -- disable = { "vue" },              -- optional, list of language that will be disabled
   },
   context_commentstring = {
     enable = true

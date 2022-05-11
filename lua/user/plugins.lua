@@ -1,11 +1,7 @@
-local fn = vim.fn
-local keymap = vim.api.nvim_set_keymap
-
-
 -- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
+local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  PACKER_BOOTSTRAP = vim.fn.system {
     "git",
     "clone",
     "--depth",
@@ -53,9 +49,9 @@ return packer.startup(function(use)
 use 'hrsh7th/nvim-cmp'
 use 'hrsh7th/cmp-nvim-lsp'
 -- use 'hrsh7th/cmp-buffer'
--- use 'L3MON4D3/LuaSnip'
+use 'L3MON4D3/LuaSnip'
 -- use 'rafamadriz/friendly-snippets'
--- use 'saadparwaiz1/cmp_luasnip'
+use 'saadparwaiz1/cmp_luasnip'
 
 use 'sbdchd/neoformat'
 -- vim.g['neoformat_verbose'] = 1
@@ -66,18 +62,9 @@ use 'sbdchd/neoformat'
 use 'neovim/nvim-lspconfig'
 use 'williamboman/nvim-lsp-installer'
 
--- Lua
-use {
-  "folke/trouble.nvim",
-  requires = "kyazdani42/nvim-web-devicons",
-  config = function()
-    require("trouble").setup {
-    }
-  end
-}
-
 -- dap
-use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+use "mfussenegger/nvim-dap"
+use "suketa/nvim-dap-ruby"
 
 -- treesitter
 use 'nvim-treesitter/nvim-treesitter'
@@ -131,9 +118,10 @@ vim.g['diffget_upstream_map'] = 'gu'
 -- vim.g['airline_section_c'] = '%F    %{ConflictedVersion()}'
 
 use 'EdenEast/nightfox.nvim'
-vim.cmd("colorscheme nightfox")
+vim.cmd('colorscheme nightfox')
 
-use { 'famiu/feline.nvim' }
+
+use 'feline-nvim/feline.nvim'
 require('feline').setup()
 
 use 'junegunn/gv.vim'
@@ -222,6 +210,7 @@ require('toggleterm').setup{
 }
 
 use "justinmk/vim-sneak"
+-- vim.g['sneak#label'] = 1
 
 use 'ojroques/nvim-buildme'
 
@@ -240,6 +229,8 @@ require("zk").setup({
 })
 
 use {'stevearc/gkeep.nvim', run = ':UpdateRemotePlugins'}
+
+use 'RRethy/vim-illuminate'
 
 use 'jbyuki/venn.nvim'
 -- venn.nvim: enable or disable keymappings
@@ -276,6 +267,17 @@ use {
   end
 }
 
+use 'gennaro-tedesco/nvim-jqx'
+
+use 'https://gitlab.com/yorickpeterse/nvim-pqf'
+require('pqf').setup({
+  signs = {
+    error = 'E',
+    warning = 'W',
+    info = 'I',
+    hint = 'H'
+  }
+})
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
