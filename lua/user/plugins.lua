@@ -59,8 +59,10 @@ use 'sbdchd/neoformat'
 -- use 'mhartington/formatter.nvim'
 
 -- lsp
-use 'neovim/nvim-lspconfig'
 use 'williamboman/nvim-lsp-installer'
+use 'neovim/nvim-lspconfig'
+
+use 'kosayoda/nvim-lightbulb'
 
 -- dap
 use "mfussenegger/nvim-dap"

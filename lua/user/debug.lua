@@ -3,10 +3,10 @@ vim.api.nvim_set_keymap('n', 'shift+f11', ':lua require"dap".step_out()<CR>', {}
 vim.api.nvim_set_keymap('n', 'f11', ':lua require"dap".step_into()<CR>', {})
 vim.api.nvim_set_keymap('n', 'f10', ':lua require"dap".step_over()<CR>', {})
 vim.api.nvim_set_keymap('n', 'f5', ':lua require"dap".continue()<CR>', {})
+vim.api.nvim_set_keymap('n', 'f6', ':lua require"dap".run()<CR>', {})
 
 local dap = require('dap')
 
--- Ruby
 dap.adapters.ruby = {
   type = 'executable';
   command = 'bundle';

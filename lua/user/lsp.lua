@@ -12,8 +12,8 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 local on_attach = function(client, bufnr)
@@ -34,13 +34,16 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
+  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', opts)
+  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', opts)
+
   require 'illuminate'.on_attach(client)
+  require('nvim-lightbulb').update_lightbulb()
 end
 
-local servers = { 'bashls', 'cssls', 'dockerls', 'gopls', 'html', 'jsonls', 'lemminx', 'ltex', 'pylsp', 'sourcekit', 'sqls', 'sumneko_lua', 'texlab', 'tsserver', 'vimls', 'yamlls' }
+local servers = { 'bashls', 'cssls', 'dockerls', 'gopls', 'html', 'jsonls', 'lemminx', 'ltex', 'pylsp', 'rome', 'solargraph', 'sourcekit', 'sqls', 'sumneko_lua', 'texlab', 'vimls', 'volar', 'yamlls' }
 
-
-
+require("nvim-lsp-installer").setup {}
 
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
@@ -49,22 +52,22 @@ for _, lsp in pairs(servers) do
   }
 end
 
-require('lspconfig')['solargraph'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    solargraph = {
-      diagnostics = true,
-      formatting = true
-    }
-  }
-}
+-- require('lspconfig')['solargraph'].setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   settings = {
+--     solargraph = {
+--       diagnostics = true,
+--       formatting = true
+--     }
+--   }
+-- }
 
-require('lspconfig').volar.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
-}
+-- require('lspconfig').volar.setup{
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   filetypes = {'vue'}
+-- }
 
 -- -- local on_attach = function(client)
 -- --   capabilities = pcall(require, "cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
