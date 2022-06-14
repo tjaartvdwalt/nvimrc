@@ -281,6 +281,15 @@ require('pqf').setup({
   }
 })
 
+use 'ghillb/cybu.nvim'
+require("cybu").setup({
+display_time = 3000,
+})
+vim.keymap.set("n", "[b", "<Plug>(CybuPrev)")
+vim.keymap.set("n", "]b", "<Plug>(CybuNext)")
+
+use 'gaborvecsei/memento.nvim'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

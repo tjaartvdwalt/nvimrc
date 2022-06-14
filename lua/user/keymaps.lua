@@ -31,6 +31,9 @@ keymap("n", "F", "<Plug>Sneak_F", {})
 keymap("n", "t", "<Plug>Sneak_t", {})
 keymap("n", "T", "<Plug>Sneak_T", {})
 
+-- user commands
+vim.api.nvim_create_user_command("Momento", "lua require('memento').toggle()", {})
+--
 -- terminal
 -- keymap("t", "<Esc>", "<C-\><C-n>", opts)
 -- keymap("t", "<C-v><Esc>", "<Esc>", opts)
@@ -56,3 +59,4 @@ call SetupCommandAlias("bo", "BufOnly")
 call SetupCommandAlias("cdc", "cd %:p:h")
 call SetupCommandAlias("tn", "tabnew")
 ]]
+
