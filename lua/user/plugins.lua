@@ -52,15 +52,31 @@ use 'hrsh7th/cmp-nvim-lsp'
 use 'L3MON4D3/LuaSnip'
 -- use 'rafamadriz/friendly-snippets'
 use 'saadparwaiz1/cmp_luasnip'
+use 'hrsh7th/cmp-path'
+use 'f3fora/cmp-spell'
+use 'onsails/lspkind.nvim'
 
 use 'sbdchd/neoformat'
 -- vim.g['neoformat_verbose'] = 1
 
 -- use 'mhartington/formatter.nvim'
+-- use 'mhartington/formatter.nvim'
+
+-- Provides the Format and FormatWrite commands
+-- require('formatter').setup {
+--   filetype = {
+--     lua = {
+--       require('formatter.filetypes.lua').stylua
+--     }
+--   }
+-- }
 
 -- lsp
 use 'williamboman/nvim-lsp-installer'
 use 'neovim/nvim-lspconfig'
+
+use 'j-hui/fidget.nvim'
+require"fidget".setup{}
 
 use 'kosayoda/nvim-lightbulb'
 
@@ -120,14 +136,18 @@ vim.g['diffget_upstream_map'] = 'gu'
 -- vim.g['airline_section_c'] = '%F    %{ConflictedVersion()}'
 
 use 'EdenEast/nightfox.nvim'
-vim.cmd('colorscheme nightfox')
-
+vim.cmd('colorscheme duskfox')
+-- use({
+-- 	"catppuccin/nvim",
+-- 	as = "catppuccin"
+-- })
+-- vim.cmd('colorscheme catppuccin')
 
 use 'feline-nvim/feline.nvim'
 require('feline').setup()
 
 use 'junegunn/gv.vim'
-use 'int3/vim-extradite'
+-- use 'int3/vim-extradite'
 
 use 'sodapopcan/vim-twiggy'
 -- let g:twiggy_local_branch_sort = 'date'

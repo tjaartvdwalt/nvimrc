@@ -5,7 +5,7 @@ vim.opt.incsearch = true
 vim.opt.list = true
 vim.opt.foldenable = false
 vim.opt.nu = true
-vim.opt.hidden = true
+vim.opt.hidden = false
 
 vim.opt.omnifunc='syntaxcomplete#Complete'
 

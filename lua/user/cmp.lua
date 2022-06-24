@@ -1,6 +1,11 @@
 -- vim.o.completeopt = "menuone,noselect"
 local cmp = require("cmp")
-  cmp.setup({
+local lspkind = require('lspkind')
+
+cmp.setup({
+  formatting = {
+    format = lspkind.cmp_format(),
+  },
   completion = {
     autocomplete = true
   },
@@ -40,6 +45,7 @@ local cmp = require("cmp")
     { name = 'nvim_lsp' },
     { name = 'luanips' },
     { name = 'buffer' },
+    { name = 'path' },
+    { name = 'spell' },
   }
 })
-
