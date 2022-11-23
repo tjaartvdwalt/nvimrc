@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
 let g:projectionist_heuristics = {
       \   ".github/workflows/*.yml": {
       \     ".github/workflows/*.yml": {"type": "github-workflow"}
@@ -15,12 +15,31 @@ let g:projectionist_heuristics = {
       \   "package.json": {
       \     "package.json": {"type": "package"}
       \   },
-      \   "nuxt.config.js": {
-      \     "components/*.vue": {"type": "component"},
-      \     "layouts/*.vue": {"type": "layout"},
-      \     "pages/*.vue": {"type": "page"},
-      \     "store/*.ts": {"type": "store"},
-      \     "test/*.spec.js": {"type": "test"}
+      \   "nuxt.config.ts": {
+      \     "components/*.vue": {
+      \       "type": "component",
+      \        "alternate": "tests/components/{dirname}/{basename}.test.ts"
+      \     },
+      \     "layouts/*.vue": {
+      \       "type": "layout",
+      \        "alternate": "tests/layouts/{dirname}/{basename}.test.ts"
+      \     },
+      \     "pages/*.vue": {
+      \       "type": "page",
+      \        "alternate": "tests/pages/{dirname}/{basename}.test.ts"
+      \     },
+      \     "store/*.ts": {
+      \       "type": "store",
+      \        "alternate": "tests/store/{dirname}/{basename}.test.ts"
+      \     },
+      \     "server/*.ts": {
+      \        "type": "server", 
+      \        "alternate": "tests/server/{dirname}/{basename}.test.ts"
+      \     },
+      \     "tests/*.test.ts": {
+      \       "type": "test",
+      \       "alternate": "{}.ts"
+      \     }
       \   },
       \   "vue.config.js": {
       \     "src/*.vue": {"type": "source"},
@@ -79,4 +98,4 @@ let g:projectionist_heuristics = {
       \      },
       \   }
       \}
-]]
+]])
