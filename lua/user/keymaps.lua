@@ -40,22 +40,11 @@ vim.api.nvim_create_user_command("Momento", "lua require('memento').toggle()", {
 vim.keymap.set("n", "<leader>b", ":Buffers<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>w", ":Windows<cr>", { noremap = true })
 
--- custom aliases
--- vim.cmd([[
--- function! SetupCommandAlias(input, output)
---   exec 'cabbrev <expr> '.a:input
---         \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:input.'")'
---         \ .'? ("'.a:output.'") : ("'.a:input.'"))'
--- endfunction
-
--- vim.cmd('cnoreabbrev f lua vim.lsp.buf.format()')
--- call SetupCommandAlias("f", "lua vim.lsp.buf.format()")
+vim.cmd('cnoreabbrev f lua vim.lsp.buf.format()')
 vim.cmd('cnoreabbrev g vertical rightbelow Git')
--- call SetupCommandAlias("g", "vertical rightbelow Git")
--- call SetupCommandAlias("gh", "Telescope gh")
--- call SetupCommandAlias("gs", "Telescope git_stash")
--- call SetupCommandAlias("o", "only")
--- call SetupCommandAlias("bo", "BufOnly")
--- call SetupCommandAlias("cdc", "cd %:p:h")
--- call SetupCommandAlias("tn", "tabnew")
--- ]])
+vim.cmd('cnoreabbrev gh Telescope gh')
+vim.cmd('cnoreabbrev gs Telescope git_stash')
+vim.cmd('cnoreabbrev o only')
+vim.cmd('cnoreabbrev bo BufOnly')
+vim.cmd('cnoreabbrev cdc cd %:p:h')
+vim.cmd('cnoreabbrev tn tabnew')
