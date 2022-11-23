@@ -8,40 +8,39 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+vim.keymap.set("n", "<leader>q", "<cmd>Trouble<CR>", opts)
 
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
-    "n",
-    "<leader>wl",
-    "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
-    opts
-  )
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+  local bufopts = { noremap = true, silent = true }
+  vim.keymap.set(bufnr, "n", "gD", vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set(bufnr, "n", "gd", vim.lsp.buf.definition, bufopts)
+  vim.keymap.set(bufnr, "n", "K", vim.lsp.buf.hover, bufopts)
+  vim.keymap.set(bufnr, "n", "gi", vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set(bufnr, "n", "<c-k>", vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set(bufnr, "n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set(bufnr, "n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set(bufnr, "n", "<leader>wl", function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set(bufnr, "n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set(bufnr, "n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+  vim.keymap.set(bufnr, "n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set(bufnr, "n", "gr", vim.lsp.buf.references, bufopts)
+  vim.keymap.set(bufnr, "n", "<leader>f", function()
+    vim.lsp.buf.format({ async = true })
+  end, bufopts)
 
   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', opts)
 
   require("illuminate").on_attach(client)
-  require("nvim-lightbulb").update_lightbulb()
+  -- require("nvim-lightbulb").update_lightbulb()
 end
 
 -- Format using null-ls
