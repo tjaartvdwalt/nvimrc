@@ -25,6 +25,7 @@ vim.opt.updatetime = 750
 
 vim.cmd([[ set clipboard+=unnamedplus ]])
 
+
 vim.cmd([[ set background=dark ]])
 
 -- Show only 1 status line
@@ -67,3 +68,8 @@ augroup END
 vim.g["netrw_sort_options"] = "i"
 
 vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
+
+-- Copy visual selection into system clipboard
+-- https://github.com/neovim/neovim/issues/2325
+-- vim.cmd("set mouse=a")
+vim.keymap.set("v", "<LeftRelease>", '"*ygv<CR>', {})
