@@ -40,7 +40,7 @@ vim.api.nvim_create_user_command("Momento", "lua require('memento').toggle()", {
 vim.keymap.set("n", "<leader>b", ":Buffers<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>w", ":Windows<cr>", { noremap = true })
 
-vim.cmd("cnoreabbrev f lua vim.lsp.buf.format()")
+vim.cmd("cnoreabbrev f lua vim.lsp.buf.format({async = true, timeout_ms = 5000, filter = function(filter_client) return filter_client.name == 'null-ls' end })")
 vim.cmd("cnoreabbrev g vertical rightbelow Git")
 vim.cmd("cnoreabbrev gh Telescope gh")
 vim.cmd("cnoreabbrev gs Telescope git_stash")
