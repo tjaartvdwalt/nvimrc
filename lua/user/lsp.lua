@@ -62,6 +62,9 @@ null_ls.setup({
 })
 
 require("mason").setup()
+require("mason-nvim-dap").setup({
+    automatic_setup = true,
+})
 require("mason-lspconfig").setup()
 
 require("mason-lspconfig").setup_handlers({
