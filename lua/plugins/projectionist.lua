@@ -1,3 +1,6 @@
+return {
+  {"tpope/vim-projectionist", 
+  config = function()
 vim.cmd([[
 let g:projectionist_heuristics = {
       \   ".github/workflows/*.yml": {
@@ -99,3 +102,6 @@ let g:projectionist_heuristics = {
       \   }
       \}
 ]])
+end
+}
+}
