@@ -5,7 +5,7 @@ return {
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
   { "echasnovski/mini.indentscope", enabled = false },
   { "folke/noice.nvim", enabled = false },
-  { "goolord/alpha-nvim", enabled = false },
+  { "glepnir/dashboard-nvim", enabled = false },
   -- { "SmiteshP/nvim-navic", enabled = false },
   { "MunifTanjim/nui.nvim", enabled = false },
 }

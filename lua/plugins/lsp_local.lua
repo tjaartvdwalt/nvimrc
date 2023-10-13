@@ -1,26 +1,56 @@
 return {
+  -- {
+  --   "jay-babu/mason-null-ls.nvim",
+  --   dependencies = {
+  --     "williamboman/mason.nvim",
+  --     "nvimtools/none-ls.nvim",
+  --   },
+  --   config = function()
+  --     -- require("mason").setup()
+  --     require("mason-null-ls").setup({
+  --       automatic_installation = false,
+  --       handlers = {},
+  --       -- automatic_setup = true,
+  --       ensure_installed = {
+  --         "isort",
+  --         "black",
+  --         "prettierd",
+  --         "shfmt",
+  --         "stylua",
+  --       },
+  --     })
+  --   end,
+  -- },
   {
-    "jay-babu/mason-null-ls.nvim",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "nvimtools/none-ls.nvim",
+  "stevearc/conform.nvim",
+  event = { "BufWritePre" },
+  cmd = { "ConformInfo" },
+  keys = {
+    {
+      -- Customize or remove this keymap to your liking
+      "<leader>f",
+      function()
+        require("conform").format({ async = true, lsp_fallback = true })
+      end,
+      mode = "",
+      desc = "Format buffer",
     },
-    config = function()
-      -- require("mason").setup()
-      require("mason-null-ls").setup({
-        automatic_installation = false,
-        handlers = {},
-        -- automatic_setup = true,
-        ensure_installed = {
-          "isort",
-          "black",
-          "prettierd",
-          "shfmt",
-          "stylua",
-        },
-      })
-    end,
   },
+  -- Everything in opts will be passed to setup()
+  opts = {
+    formatters_by_ft = {
+      -- lua = { "stylua" },
+      -- python = { "isort", "black" },
+      javascript = { { "prettierd", "prettier" } },
+    },
+    -- format_on_save = { timeout_ms = 500, lsp_fallback = true },
+  },
+  init = function()
+    -- If you want the formatexpr, here is the place to set it
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end,
+  },
+
 
   {
     "neovim/nvim-lspconfig",

@@ -45,12 +45,8 @@ vim.keymap.set("v", "_", '"_', { noremap = true, desc = "Black hole register" })
 -- vim.keymap.set("n", "<leader>b", ":Buffers<cr>", { noremap = true })
 -- vim.keymap.set("n", "<leader>w", ":Windows<cr>", { noremap = true })
 
--- vim.cmd(
---   "cnoreabbrev f lua vim.lsp.buf.format({async = true, timeout_ms = 5000, filter = function(filter_client) return filter_client.name == 'null-ls' end })"
--- )
-vim.cmd("cnoreabbrev f lua vim.lsp.buf.format({ timeout_ms = 2000 })")
+vim.cmd("cnoreabbrev f lua require('conform').format({ async = true, lsp_fallback = true })")
 vim.cmd("cnoreabbrev g vertical rightbelow Git")
--- vim.cmd("cnoreabbrev gr Telescope gh")
 vim.cmd("cnoreabbrev gs FzfLua git_stash")
 vim.cmd("cnoreabbrev gb FzfLua git_branches")
 vim.cmd("cnoreabbrev o only")
