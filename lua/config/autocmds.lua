@@ -8,8 +8,8 @@ augroup vimrc
 augroup END
 
 " set autochdir
-autocmd BufEnter * silent! lcd %:p:h
-autocmd TabEnter * silent! tcd %:p:h
+" autocmd BufEnter * silent! lcd %:p:h
+" autocmd TabEnter * silent! tcd %:p:h
 ]])
 
 vim.cmd([[
