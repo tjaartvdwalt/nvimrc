@@ -36,7 +36,7 @@ vim.api.nvim_set_option("background","dark")
 -- Show only 1 status line
 vim.cmd([[ set laststatus=3 ]])
 
-vim.g["netrw_keepdir"] = 0
+
 -- "prevent nested instances
 
 -- if has('nvim') && executable('nvr')
@@ -49,7 +49,9 @@ vim.g["netrw_keepdir"] = 0
 -- filetype plugin on
 
 -- vim.g['netrw_list_hide'] = '\(^\|\s\s\)\zs\.\S\+'
-vim.g["netrw_sort_options"] = "i"
+vim.g.netrw_keepdir = 0
+vim.g.netrw_sort_options = "i"
+vim.g.autoformat = false
 
 -- -- Copy visual selection into system clipboard
 -- -- https://github.com/neovim/neovim/issues/2325
