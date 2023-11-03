@@ -16,5 +16,5 @@ return {
     dependencies = { 'ldelossa/litee.nvim' }
   },
   {'rbong/vim-flog'},
-  {'neomake/neomake'}
+  -- {'neomake/neomake'}
 }
