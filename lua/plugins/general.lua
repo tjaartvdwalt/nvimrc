@@ -30,8 +30,8 @@ return {
   { "tpope/vim-sensible" },
   { "tpope/vim-sleuth" },
   { "tpope/vim-speeddating" },
-  { "tpope/vim-surround" },
-  { "tpope/vim-unimpaired" },
+  -- { "tpope/vim-surround" },
+  -- { "tpope/vim-unimpaired" },
   { "tpope/vim-vinegar" },
 
   -- { "junegunn/fzf" },
