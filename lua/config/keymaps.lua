@@ -9,42 +9,39 @@ vim.keymap.set("i", "<C-u>", "<Esc>:", {})
 -- vim.keymap.set("n", "<leader>tt", ":FloatermToggle<cr>", { noremap = true })
 -- vim.keymap.set("n", "<leader>tg", ":FloatermNew lazygit<CR>", { noremap = true })
 
-local wk = require("which-key")
-wk.register({ s = { name = "Spell" } }, { prefix = "<leader>" })
+-- local wk = require("which-key")
+-- wk.register({ s = { name = "Spell" } }, { prefix = "<leader>" })
 -- vim.keymap.set("n", "<leader>ss", ":set spell!<cr>", { noremap = true })
 
 vim.keymap.set("n", "<leader>v", ":e ~/.config/nvim/<cr>", { noremap = true })
 
-vim.keymap.set("n", "<Leader>a", ":ProjectDo GrepperRg -S<space>", { noremap = true })
-
-vim.keymap.set("n", "<leader>gs", ":FzfLua git_stash<cr>", { noremap = true, desc = "Git Stash" })
-vim.keymap.set("n", "<leader>gb", ":FzfLua git_branches<cr>", { noremap = true, desc = "Git Branches" })
+-- vim.keymap.set("n", "<Leader>a", ":ProjectDo GrepperRg -S<space>", { noremap = true })
 
 vim.keymap.set("n", "_", '"_', { noremap = true, desc = "Black hole register" })
 vim.keymap.set("v", "_", '"_', { noremap = true, desc = "Black hole register" })
 
--- Move to window using the <ctrl> hjkl keys
-vim.keymap.del("n", "<C-h>")
-vim.keymap.del("n", "<C-j>")
-vim.keymap.del("n", "<C-k>")
-vim.keymap.del("n", "<C-l>")
-
--- Resize window using <ctrl> arrow keys
-vim.keymap.del("n", "<C-Up>")
-vim.keymap.del("n", "<C-Down>")
-vim.keymap.del("n", "<C-Left>")
-vim.keymap.del("n", "<C-Right>")
-
--- Resize window using <ctrl> arrow keys
-vim.keymap.set("n", "<C-Up>", ":lua require('tmux').move_top()<cr>",{ remap = true, desc = "Go to upper window", silent = true } )
-vim.keymap.set("n", "<C-Down>", ":lua require('tmux').move_bottom()<cr>", { remap = true, desc = "Go to lower window", silent = true })
-vim.keymap.set("n", "<C-Left>", ":lua require('tmux').move_left()<cr>", { remap = true, desc = "Go to left window", silent = true  })
-vim.keymap.set("n", "<C-Right>", ":lua require('tmux').move_right()<cr>", { remap = true, desc = "Go to right window", silent = true  })
-
-vim.keymap.set("n", "<M-Up>", ":lua require('tmux').resize_top()<cr>",{ remap = true, desc = "Increase window height", silent = true  } )
-vim.keymap.set("n", "<M-Down>", ":lua require('tmux').resize_bottom()<cr>", { remap = true, desc = "Decrease window height", silent = true  })
-vim.keymap.set("n", "<M-Left>", ":lua require('tmux').resize_left()<cr>", { remap = true, desc = "Decrease window width", silent = true  })
-vim.keymap.set("n", "<M-Right>", ":lua require('tmux').resize_right()<cr>", { remap = true, desc = "Increase window width", silent = true  })
+-- -- Move to window using the <ctrl> hjkl keys
+-- vim.keymap.del("n", "<C-h>")
+-- vim.keymap.del("n", "<C-j>")
+-- vim.keymap.del("n", "<C-k>")
+-- vim.keymap.del("n", "<C-l>")
+--
+-- -- Resize window using <ctrl> arrow keys
+-- vim.keymap.del("n", "<C-Up>")
+-- vim.keymap.del("n", "<C-Down>")
+-- vim.keymap.del("n", "<C-Left>")
+-- vim.keymap.del("n", "<C-Right>")
+--
+-- -- Resize window using <ctrl> arrow keys
+-- vim.keymap.set("n", "<C-Up>", ":lua require('tmux').move_top()<cr>",{ remap = true, desc = "Go to upper window", silent = true } )
+-- vim.keymap.set("n", "<C-Down>", ":lua require('tmux').move_bottom()<cr>", { remap = true, desc = "Go to lower window", silent = true })
+-- vim.keymap.set("n", "<C-Left>", ":lua require('tmux').move_left()<cr>", { remap = true, desc = "Go to left window", silent = true  })
+-- vim.keymap.set("n", "<C-Right>", ":lua require('tmux').move_right()<cr>", { remap = true, desc = "Go to right window", silent = true  })
+--
+-- vim.keymap.set("n", "<M-Up>", ":lua require('tmux').resize_top()<cr>",{ remap = true, desc = "Increase window height", silent = true  } )
+-- vim.keymap.set("n", "<M-Down>", ":lua require('tmux').resize_bottom()<cr>", { remap = true, desc = "Decrease window height", silent = true  })
+-- vim.keymap.set("n", "<M-Left>", ":lua require('tmux').resize_left()<cr>", { remap = true, desc = "Decrease window width", silent = true  })
+-- vim.keymap.set("n", "<M-Right>", ":lua require('tmux').resize_right()<cr>", { remap = true, desc = "Increase window width", silent = true  })
 
 -- vim.keymap.set("n", "<Leader>/g", ":GrepperRg -S<space>", { noremap = true })
 
@@ -68,10 +65,9 @@ vim.keymap.set("n", "<M-Right>", ":lua require('tmux').resize_right()<cr>", { re
 -- vim.keymap.set("n", "<leader>b", ":Buffers<cr>", { noremap = true })
 -- vim.keymap.set("n", "<leader>w", ":Windows<cr>", { noremap = true })
 
-vim.cmd("cnoreabbrev f lua require('conform').format({ async = true, lsp_fallback = true })")
+-- vim.cmd("cnoreabbrev f lua require('conform').format({ async = true, lsp_fallback = true })")
+vim.cmd("cnoreabbrev f LazyFormat")
 vim.cmd("cnoreabbrev g vertical rightbelow Git")
-vim.cmd("cnoreabbrev gs FzfLua git_stash")
-vim.cmd("cnoreabbrev gb FzfLua git_branches")
 vim.cmd("cnoreabbrev o only")
 vim.cmd("cnoreabbrev bo BufOnly")
 vim.cmd("cnoreabbrev cdc cd %:p:h")

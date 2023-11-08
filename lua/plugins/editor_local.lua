@@ -35,51 +35,17 @@ return {
 		end,
 		keys = {
 			{ "<leader>,", ":FzfLua buffers<cr>", desc = "Switch Buffer" },
-			{ "<leader>sg", ":lua fzf_grep_live_root()<cr>", desc = "Grep (project root)" },
+			{ "<leader>/", ":lua fzf_grep_live_root()<cr>", desc = "Grep (root dir)" },
+			{ "<leader>:", ":FzfLua command_history<cr>", desc = "Command History" },
+			{ "<leader>gb", ":FzfLua git_branches<cr>", desc = "Git branches" },
+			{ "<leader>gc", ":FzfLua git_commits<cr>", desc = "Git commits" },
+			{ "<leader>gs", ":FzfLua git_status<cr>", desc = "Git status" },
+			{ "<leader>s\"", ":FzfLua registers<cr>", desc = "Registers" },
+			{ "<leader>sc", ":FzfLua command_history<cr>", desc = "Command History" },
+			{ "<leader>sg", ":lua fzf_grep_live_root()<cr>", desc = "Grep (root dir)" },
 			{ "<leader>sG", ":FzfLua live_grep<cr>", desc = "Grep (cwd)" },
-			-- {
-			--   "<leader>fp",
-			{
-				"nvim-neorg/neorg",
-				build = ":Neorg sync-parsers",
-				opts = {
-					load = {
-						["core.defaults"] = {}, -- Loads default behaviour
-						["core.concealer"] = {}, -- Adds pretty icons to your documents
-						{
-							"nvim-neorg/neorg",
-							build = ":Neorg sync-parsers",
-							opts = {
-								load = {
-									["core.defaults"] = {}, -- Loads default behaviour
-									["core.concealer"] = {}, -- Adds pretty icons to your documents
-									["core.dirman"] = { -- Manages Neorg workspaces
-										config = {
-											workspaces = {
-												notes = "~/notes",
-											},
-										},
-									},
-								},
-							},
-							dependencies = { { "nvim-lua/plenary.nvim" } },
-						},
-						["core.dirman"] = { -- Manages Neorg workspaces
-							config = {
-								workspaces = {
-									notes = "~/notes",
-								},
-							},
-						},
-					},
-				},
-				dependencies = { { "nvim-lua/plenary.nvim" } },
-			},
-			--   function()
-			--     require("fzf-lua").files({ cwd = root_dir() })
-			--   end,
-			--   desc = "Fzf-Lua search project",
-			-- },
+			{ "<leader>sk", ":FzfLua keymaps<cr>", desc = "Key Maps" },
+			{ "<leader>sm", ":FzfLua man_pages<cr>", desc = "Man Pages" },
 		},
 	},
 	{

@@ -20,4 +20,4 @@ augroup turbo_commit
 augroup END
 ]])
 
-vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
+-- vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
