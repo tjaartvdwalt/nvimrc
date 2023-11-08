@@ -12,6 +12,7 @@ return {
   --     })
   --   end,
   -- },
+	{"direnv/direnv.vim"},
   { "tpope/vim-bundler" },
 
   { "tpope/vim-dispatch" },
