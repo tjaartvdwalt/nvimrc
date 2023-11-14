@@ -20,6 +20,8 @@ vim.keymap.set("n", "<leader>v", ":e ~/.config/nvim/<cr>", { noremap = true })
 vim.keymap.set("n", "_", '"_', { noremap = true, desc = "Black hole register" })
 vim.keymap.set("v", "_", '"_', { noremap = true, desc = "Black hole register" })
 
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
 -- -- Move to window using the <ctrl> hjkl keys
 -- vim.keymap.del("n", "<C-h>")
 -- vim.keymap.del("n", "<C-j>")

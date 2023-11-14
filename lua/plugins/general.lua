@@ -33,7 +33,7 @@ return {
   { "tpope/vim-speeddating" },
   -- { "tpope/vim-surround" },
   -- { "tpope/vim-unimpaired" },
-  { "tpope/vim-vinegar" },
+  -- { "tpope/vim-vinegar" },
 
   -- { "junegunn/fzf" },
   -- {

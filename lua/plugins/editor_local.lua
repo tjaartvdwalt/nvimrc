@@ -1,6 +1,17 @@
 return {
 	{ "tpope/vim-fugitive" },
 	{
+		"stevearc/oil.nvim",
+		opts = {
+			default_file_explorer = true,
+			delete_to_trash = true,
+			view_options = {
+				-- Show files and directories that start with "."
+				show_hidden = true,
+			},
+		},
+	},
+	{
 		"mbbill/undotree",
 		keys = {
 			{ "<leader>uu", ":UndotreeToggle<cr>:UndotreeFocus<cr>", desc = "Toggle Undo Tree" },
@@ -40,7 +51,8 @@ return {
 			{ "<leader>gb", ":FzfLua git_branches<cr>", desc = "Git branches" },
 			{ "<leader>gc", ":FzfLua git_commits<cr>", desc = "Git commits" },
 			{ "<leader>gs", ":FzfLua git_status<cr>", desc = "Git status" },
-			{ "<leader>s\"", ":FzfLua registers<cr>", desc = "Registers" },
+			{ "<leader>gS", ":FzfLua git_stash<cr>", desc = "Git stash" },
+			{ '<leader>s"', ":FzfLua registers<cr>", desc = "Registers" },
 			{ "<leader>sc", ":FzfLua command_history<cr>", desc = "Command History" },
 			{ "<leader>sg", ":lua fzf_grep_live_root()<cr>", desc = "Grep (root dir)" },
 			{ "<leader>sG", ":FzfLua live_grep<cr>", desc = "Grep (cwd)" },
@@ -84,17 +96,18 @@ return {
 			{ "]h", ':lua require("harpoon.ui").nav_next()<cr>' },
 		},
 	},
-	{"aserowy/tmux.nvim", 
+	{
+		"aserowy/tmux.nvim",
 		config = function()
 			return require("tmux").setup()
 		end,
 		opts = {
 			navigation = {
-        enable_default_keybindings = false,
+				enable_default_keybindings = false,
 			},
 			resize = {
 				enable_default_keybindings = false,
-			}
+			},
 		},
 	},
 }
