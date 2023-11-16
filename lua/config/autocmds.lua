@@ -20,4 +20,5 @@ augroup turbo_commit
 augroup END
 ]])
 
+vim.cmd([[au BufRead,BufNewFile *.http      set filetype=http]])
 -- vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
