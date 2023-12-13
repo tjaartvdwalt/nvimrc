@@ -15,7 +15,12 @@ return {
 	--   'ldelossa/gh.nvim',
 	--   dependencies = { 'ldelossa/litee.nvim' }
 	-- },
-	{ "rbong/vim-flog" },
+	{ "rbong/vim-flog",
+		keys = {
+			{ "<leader>gL", ":Flog<cr>", desc = "Show git log in a new tab" },
+			{ "<leader>gl", ":Flogsplit<cr>", desc = "Show git log in a split window" },
+		},
+	},
 	{
 		"rest-nvim/rest.nvim",
 		dependencies = { { "nvim-lua/plenary.nvim" } },
