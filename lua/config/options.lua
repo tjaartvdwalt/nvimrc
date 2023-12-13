@@ -4,6 +4,7 @@
 
 vim.g.autoformat = false
 vim.opt.clipboard = "unnamed,unnamedplus"
+vim.opt.confirm = false
 vim.opt.expandtab = false
 vim.opt.relativenumber = false
 vim.opt.title = true
@@ -12,7 +13,7 @@ vim.opt.wildmode = "longest:list,full"
 
 -- Maybe keep
 vim.opt.encoding = "UTF-8"
-vim.opt.incsearch = true
+-- vim.opt.incsearch = true
 vim.opt.spellfile = "~/.config/nvim/spell/en.utf-8.add"
 
 -- Discard
@@ -23,7 +24,6 @@ vim.opt.spellfile = "~/.config/nvim/spell/en.utf-8.add"
 -- vim.opt.foldenable = false
 -- vim.opt.nu = true
 -- vim.opt.hidden = false
--- vim.opt.confirm = false
 
 -- vim.opt.omnifunc = "syntaxcomplete#Complete"
 
