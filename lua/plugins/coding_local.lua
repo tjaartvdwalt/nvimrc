@@ -17,8 +17,8 @@ return {
 	-- },
 	{ "rbong/vim-flog",
 		keys = {
-			{ "<leader>gL", ":Flog<cr>", desc = "Show git log in a new tab" },
-			{ "<leader>gl", ":Flogsplit<cr>", desc = "Show git log in a split window" },
+			{ "<leader>gl", ":Flog<cr>", desc = "Show git log in a new tab" },
+			{ "<leader>gL", ":Flogsplit<cr>", desc = "Show git log in a split window" },
 		},
 	},
 	{
