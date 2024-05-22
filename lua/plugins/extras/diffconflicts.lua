@@ -1,0 +1,1 @@
+return { "whiteinge/diffconflicts" }

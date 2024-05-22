@@ -22,3 +22,6 @@ augroup END
 
 vim.cmd([[au BufRead,BufNewFile *.http      set filetype=http]])
 -- vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
+
+vim.cmd([[autocmd Filetype mail set textwidth=0]])
+

@@ -16,6 +16,9 @@ vim.opt.encoding = "UTF-8"
 -- vim.opt.incsearch = true
 vim.opt.spellfile = "~/.config/nvim/spell/en.utf-8.add"
 
+-- Lazyvim config
+vim.g.lazyvim_python_lsp = "basedpyright"
+
 -- Discard
 -- vim.opt.titlelen = 33
 -- vim.opt.hlsearch = true

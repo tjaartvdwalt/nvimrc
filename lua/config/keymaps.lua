@@ -1,5 +1,6 @@
 vim.keymap.set("n", "<C-u>", ":", {})
 vim.keymap.set("i", "<C-u>", "<Esc>:", {})
+
 -- keymap("n", "<C-c>", ":", {})
 -- keymap("i", "<C-c>", "<Esc>:", {})
 
