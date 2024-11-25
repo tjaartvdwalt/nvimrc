@@ -1,5 +1,15 @@
 return {
 	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				jinja_lsp = {
+					filetypes = { "jinja", "j2", "html", "htmljinja" },
+				},
+			},
+		},
+	},
+	{
 		"williamboman/mason.nvim",
 		opts = {
 			ensure_installed = {
