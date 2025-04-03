@@ -2,6 +2,10 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		opts = {
+			diagnostics = {
+        virtual_text = false,
+        virtual_lines = { current_line = true },
+      },
 			servers = {
 				jinja_lsp = {
 					filetypes = { "jinja", "j2", "html", "htmljinja" },

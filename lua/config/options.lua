@@ -19,6 +19,8 @@ vim.opt.spellfile = "~/.config/nvim/spell/en.utf-8.add"
 -- Lazyvim config
 vim.g.lazyvim_python_lsp = "basedpyright"
 
+vim.diagnostic.config({ virtual_lines = { current_line = true } })
+
 -- Discard
 -- vim.opt.titlelen = 33
 -- vim.opt.hlsearch = true
