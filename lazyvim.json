@@ -1,5 +1,6 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.ai.claudecode",
     "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.dap.core",
@@ -10,6 +11,8 @@
     "lazyvim.plugins.extras.editor.navic",
     "lazyvim.plugins.extras.editor.overseer",
     "lazyvim.plugins.extras.editor.refactoring",
+    "lazyvim.plugins.extras.editor.snacks_explorer",
+    "lazyvim.plugins.extras.editor.snacks_picker",
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.ansible",
     "lazyvim.plugins.extras.lang.clangd",
@@ -30,6 +33,7 @@
     "lazyvim.plugins.extras.lang.vue",
     "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.test.core",
+    "lazyvim.plugins.extras.ui.dashboard-nvim",
     "lazyvim.plugins.extras.ui.edgy",
     "lazyvim.plugins.extras.ui.mini-animate",
     "lazyvim.plugins.extras.util.dot",
@@ -38,22 +42,27 @@
     "lazyvim.plugins.extras.util.startuptime",
     "plugins.extras.diffconflicts",
     "plugins.extras.direnv",
+    "plugins.extras.firenvim",
     "plugins.extras.flog",
     "plugins.extras.fugitive",
-    "plugins.extras.luarocks",
+    "plugins.extras.image",
+    "plugins.extras.jupyter-notebooks",
+    "plugins.extras.jupytext",
     "plugins.extras.md-pdf",
-    "plugins.extras.neorg",
+    "plugins.extras.molten",
+    "plugins.extras.nvim-python-repl",
     "plugins.extras.oil",
+    "plugins.extras.otter",
     "plugins.extras.projectionist",
+    "plugins.extras.quarto",
     "plugins.extras.remote-nvim",
     "plugins.extras.tpope",
-    "plugins.extras.undotree",
     "plugins.extras.vim-sway-nav",
     "plugins.extras.zoxide"
   ],
   "install_version": 7,
   "news": {
-    "NEWS.md": "10960"
+    "NEWS.md": "11866"
   },
   "version": 8
 }

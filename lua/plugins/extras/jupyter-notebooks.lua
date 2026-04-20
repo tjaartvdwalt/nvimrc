@@ -25,7 +25,7 @@ return {
 
 		},
 		dependencies = {
-			"echasnovski/mini.comment",
+			-- "echasnovski/mini.comment",
 			"hkupty/iron.nvim", -- repl provider
 			-- "akinsho/toggleterm.nvim", -- alternative repl provider
 			-- "benlubas/molten-nvim", -- alternative repl provider

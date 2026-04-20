@@ -3,8 +3,8 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			diagnostics = {
-        virtual_text = false,
-        virtual_lines = { current_line = true },
+        virtual_text = { current_line = true },
+        -- virtual_lines = { current_line = true },
       },
 			servers = {
 				jinja_lsp = {
@@ -14,9 +14,10 @@ return {
 		},
 	},
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		opts = {
 			ensure_installed = {
+				"ansible-language-server",
 				"bash-language-server",
 				"clangd",
 				"cpptools",

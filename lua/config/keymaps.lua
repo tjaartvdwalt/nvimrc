@@ -23,6 +23,13 @@ vim.keymap.set("v", "_", '"_', { noremap = true, desc = "Black hole register" })
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
+vim.keymap.set("n", "<leader>ceu", function() require('nvim-python-repl').send_statement_definition() end, { desc = "Send semantic unit to REPL"})
+vim.keymap.set("v", "<leader>cev", function() require('nvim-python-repl').send_visual_to_repl() end, { desc = "Send visual selection to REPL"})
+vim.keymap.set("n", "<leader>ceb", function() require('nvim-python-repl').send_buffer_to_repl() end, { desc = "Send entire buffer to REPL"})
+vim.keymap.set("n", "<leader>cex", function() require('nvim-python-repl').toggle_execute() end, { desc = "Automatically execute command in REPL after sent"})
+vim.keymap.set("n", "<leader>ces", function() require('nvim-python-repl').toggle_vertical() end, { desc = "Create REPL in vertical or horizontal split"})
+vim.keymap.set("n", "<leader>cew", function() require('nvim-python-repl').open_repl() end, { desc = "Opens the REPL in a window split"})
+vim.keymap.set("n", "<leader>cec", function() require('nvim-python-repl').send_current_cell_to_repl() end, { desc = "Sends the cell under cursor to repl"})
 -- -- Move to window using the <ctrl> hjkl keys
 -- vim.keymap.del("n", "<C-h>")
 -- vim.keymap.del("n", "<C-j>")
